@@ -1,4 +1,11 @@
 {
+  "name": "legend-analyzer",
+  "version": "1.0.0",
+  "description": "API REST - Project WEB 295",
+  "main": "app.mjs",
+  "scripts": {
+    "dev": "nodemon app.mjs"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
