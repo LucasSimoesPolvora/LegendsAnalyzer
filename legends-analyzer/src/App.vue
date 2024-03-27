@@ -1,9 +1,12 @@
+<script setup>
+import fs from 'node:fs'
+</script>
+
 <script>
-document.addEventListener('scroll', () => {
-  const header = document.querySelector('header')
-  if(window.screen.width > 1500) {
-    header.style.backgroundSize = `calc(100% + ${window.scrollY * 5}px)`
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  const fileList = fs.readdirSync('/HeaderBackgrounds')
+
+  console.log(fileList)
 })
 </script>
 
@@ -12,6 +15,7 @@ document.addEventListener('scroll', () => {
     <div class="text">
       <h1>Hello summoner ! Welcome to</h1>
       <h2>Legends Analyzer</h2>
+      <a href="#">Get Started</a>
     </div>
   </header>
   <p>coucou</p>
@@ -60,7 +64,7 @@ header {
   width: 100%;
   height: 100vh;
   background-image: url('/headerBG.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -80,6 +84,9 @@ header {
 
 .text h1 {
   font-size: 80px;
+}
+
+.text a {
 }
 
 @media only screen and (max-width: 600px) {
