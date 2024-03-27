@@ -25,7 +25,7 @@ const auth = (req, res, next) => {
             // Checking if the user ID in the request body matches the one in the token
             if(req.body.userId && req.body.userId !== userId){
                 // If user ID in the request body doesn't match the one in the token, return 401 Unauthorized status
-                const message = "Your id is unvalid"
+                const message = "Your Id is unvalid"
                 res.status(401).json({ message })
             } else {
                 // If everything is fine and the user is valid, we proceed to the middleware
