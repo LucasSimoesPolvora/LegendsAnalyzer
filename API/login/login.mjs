@@ -10,11 +10,11 @@ const loginRouter = express();
 // endpoint for handling the router
 loginRouter.post("/", (req, res) => {
     // Finding the user in the database by username
-    User.findOne({ where: { nickname: req.body.nickname } })
+    User.findOne({ where: { nickname: req.body.nickname }})
         .then((user) => {
             // If user doesn't exist, return 404 error
             if (!user) {
-                const message = `The user you asked for doesn't exist`;
+                const message = `The user you asked for doesn't exist `;
                 return res.status(404).json({ message });
             }
             // Comparing the provided password with the hashed password stored in the database
