@@ -1,5 +1,6 @@
 import express from 'express';
 import { initDb } from './db/sequelize.mjs';
+import { loginRouter } from './login/login.mjs';
 import 'dotenv/config'
 
 const app = express()
@@ -15,6 +16,8 @@ app.listen(port, () => {
 app.get('/', (req,res) =>{
     res.send('hello')
 })
+
+app.use('/login', loginRouter)
 
 
 app.use(({ res }) => {
