@@ -21,5 +21,5 @@ app.use('/login', loginRouter)
 
 
 app.use(({ res }) => {
-    const message = "No ressource found try. Try in another URL"
+    const message = "No ressource found. Try another URL"
 })
