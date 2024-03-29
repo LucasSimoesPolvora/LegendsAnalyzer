@@ -9,10 +9,24 @@ const userModel = (sequelize, DataTypes) => {
             },
             nickname: {
                 type: DataTypes.STRING,
-                allowNull: false
+                validate: {
+                    notNull:{
+                        msg:"The nickname is required"
+                    },
+                    len:{
+                        args:[3, 100],
+                        msg:"The nickname length doesn't match the requirements"
+                    },
+
+                },
+                allowNull: false,
+                unique: true
             },
             email: {
                 type: DataTypes.STRING,
+                validate: {
+                    is: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                },
                 allowNull: false
             },
             password: {
