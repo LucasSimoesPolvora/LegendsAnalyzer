@@ -1,8 +1,8 @@
-const legendsAnalyzerModel = (sequelize, DataTypes) => {
+const userModel = (sequelize, DataTypes) => {
     return sequelize.define(
         "t_user",
         {
-            id:{
+            id_user: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true
@@ -28,4 +28,4 @@ const legendsAnalyzerModel = (sequelize, DataTypes) => {
     )
 }
 
-export { legendsAnalyzerModel }
+export { userModel }
