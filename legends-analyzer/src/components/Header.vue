@@ -39,6 +39,30 @@ header {
 
 .text h1 {
   font-size: 80px;
+  margin-bottom: 100px;
+  -moz-user-select: none; 
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
+}
+
+.text a {
+  padding: 30px 50px;
+  background-color: #8d86c9;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 30px 0 30px 0;
+  color: white;
+}
+
+.text a:hover {
+  background-color: #6c63a4;
+  border-radius: 0 30px 0 30px;
+  transition: 0.5s;
+}
+
+.text a:not(:hover) {
+  transition: 0.5s;
 }
 
 .logo {
@@ -48,8 +72,8 @@ header {
 }
 
 @media only screen and (max-width: 600px) {
-  header {
-    background-size: cover;
+  .logo {
+    display: none;
   }
 }
 </style>
