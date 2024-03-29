@@ -19,6 +19,11 @@ const legendsAnalyzerModel = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             }
+        },
+        {
+            timestamps: true,
+            createdAt: "created",
+            updatedAt: false
         }
     )
 }
