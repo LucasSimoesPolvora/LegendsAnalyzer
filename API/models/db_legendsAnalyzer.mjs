@@ -34,7 +34,8 @@ const userModel = (sequelize, DataTypes) => {
                 allowNull: false,
                 validate: {
                     min: {
-                        
+                        args:[10],
+                        msg: "The password length doesn't match the requirements"
                     }
                 }
             }
