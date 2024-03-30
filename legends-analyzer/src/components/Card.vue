@@ -1,7 +1,10 @@
 <template lang="">
   <div :style="{ 'background-image': 'url(' + imageLink + ')' }" class="card">
     <div class="textCard" :class="{ hide: isHide }">
-      <h1>{{ title }}</h1>
+      <div>
+        <h1>{{ title }}</h1>
+        <a v-show="!isHide">Learn more</a>
+      </div>
     </div>
   </div>
 </template>
@@ -40,12 +43,12 @@ export default {
   transition: 0.35s;
 }
 
-.card:hover .textCard h1{
+.card:hover .textCard div {
   transform: translateY(-15px);
   transition: 0.35s;
 }
 
-.card:not(:hover) .textCard h1{
+.card:not(:hover) .textCard div {
   transform: translateY(150px);
   transition: 0.35s;
 }
@@ -62,6 +65,4 @@ export default {
   filter: none;
   padding-left: 10%;
 }
-
-
 </style>

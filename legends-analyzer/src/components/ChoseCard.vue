@@ -15,7 +15,7 @@
         <img src="/LolPictures/masterLol.webp" alt="">
         <h2>Select the game</h2>
       </div>
-      <Card :imageLink="'/valorant.jpg'" :title="'Soon'" :isHide="true"></Card>
+      <Card :imageLink="'/valorant.jpg'" :title="'Soon...'" :isHide="true"></Card>
     </div>
   </div>
 </template>
@@ -31,11 +31,11 @@ document.addEventListener('scroll', () => {
   if(window.scrollY > divCenter.offsetHeight) {
     console.log('ok');
     divCenter.style.opacity = 1;
-    divCenter.style.transition = '2s';
+    divCenter.style.transition = '3s';
   }
   else {
     divCenter.style.opacity = 0;
-    divCenter.style.transition = '2s';
+    divCenter.style.transition = '3s';
   }
 })
 </script>
@@ -60,6 +60,10 @@ document.addEventListener('scroll', () => {
 .centerDiv {
   text-align: center;
   opacity: 0;
+}
+
+.centerDiv img {
+  animation: topToBottom 1.5s linear infinite;
 }
 
 .applicationChose {
@@ -98,6 +102,18 @@ document.addEventListener('scroll', () => {
   border-color: transparent;
   border-radius: 50%;
   border-width: 1px;
+}
+
+@keyframes topToBottom {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes rot {
