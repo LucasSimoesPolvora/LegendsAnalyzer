@@ -5,7 +5,7 @@ import 'dotenv/config'
 
 // Establish connection to the MySQL database using sequelize
 const sequelize = new Sequelize(
-    "db_legendsAnalyzer",
+    process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_USER_PASS,
     {
@@ -29,10 +29,9 @@ let initDb = () => {
 
 const importUser = () => {
     bcrypt
-        .hash(process.env.IMPORT_USER_PASS, 50)
+        .hash(process.env.IMPORT_USER_PASS, 10)
         .then((hash) => {
             User.create({
-                id_user,
                 nickname: process.env.IMPORT_USER_NICKNAME,
                 email: process.env.IMPORT_USER_EMAIL,
                 password: hash
