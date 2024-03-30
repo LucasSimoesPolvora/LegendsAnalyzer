@@ -1,29 +1,65 @@
 <template>
   <div class="circle">
-    <div></div>
+    <div>
+    </div>
   </div>
   
   <div class="applicationChose">
     <div class="cardContainer">
       <Card
-        :imageLink="'./LolPictures/1332615.jpeg'"
-        :title="'League Of Legends'"
-        :isHide="false"
+      :imageLink="'./LolPictures/1332615.jpeg'"
+      :title="'League Of Legends'"
+      :isHide="false"
       ></Card>
+      <div class="centerDiv">
+        <img src="/LolPictures/masterLol.webp" alt="">
+        <h2>Select the game</h2>
+      </div>
       <Card :imageLink="'/valorant.jpg'" :title="'Soon'" :isHide="true"></Card>
     </div>
   </div>
 </template>
+
 <script setup>
 import Card from './Card.vue'
 </script>
+
+<script>
+document.addEventListener('scroll', () => {
+  const divCenter = document.querySelector('.centerDiv');
+
+  if(window.scrollY > divCenter.offsetHeight) {
+    console.log('ok');
+    divCenter.style.opacity = 1;
+    divCenter.style.transition = '2s';
+  }
+  else {
+    divCenter.style.opacity = 0;
+    divCenter.style.transition = '2s';
+  }
+})
+</script>
+
 <style>
 .cardContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
+  align-items: center;
   z-index: 1;
+}
+
+.cardContainer img {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.centerDiv {
+  text-align: center;
+  opacity: 0;
 }
 
 .applicationChose {

@@ -12,7 +12,6 @@
 <script>
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header')
-  console.log(window.scrollY)
   // header.style.filter = `brightness(${1 - window.scrollY / 800})`;
 })
 </script>
