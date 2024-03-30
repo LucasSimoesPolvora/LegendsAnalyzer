@@ -1,16 +1,15 @@
 <script setup>
 import HeaderComponent from './components/Header.vue'
+import MainComponent from './components/Main.vue'
+
 </script>
 
 <template>
   <HeaderComponent></HeaderComponent>
-  <p>coucou</p>
-  <p>coucou</p>
+  <MainComponent></MainComponent>
 </template>
 
 <style scoped>
-@font-face {
-  font-family: 'MainFont';
-  src: url(/font/League.otf);
-}
+
+
 </style>

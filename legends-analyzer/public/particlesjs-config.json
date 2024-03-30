@@ -1,5 +1,9 @@
 {
   "fpsLimit": 120,
+  "fullScreen": {
+    "enable": false,
+    "zIndex": -1
+  },
   "interactivity": {
     "events": {
       "onClick": {
