@@ -1,13 +1,7 @@
 <template lang="">
-  <div
-    :style="{ 'background-image': 'url(' + imageLink + ')' }"
-    class="card"
-    :class="{ hide: isHide }"
-  >
-    <div class="full">
-      <div class="textCard">
-        <h1>{{ title }}</h1>
-      </div>
+  <div :style="{ 'background-image': 'url(' + imageLink + ')' }" class="card">
+    <div class="textCard" :class="{ hide: isHide }">
+      <h1>{{ title }}</h1>
     </div>
   </div>
 </template>
@@ -35,9 +29,8 @@ export default {
   width: 30vh;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: flex-end;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -47,27 +40,28 @@ export default {
   transition: 0.35s;
 }
 
-.card:hover {
-  font-size: 1.5em;
+.card:hover .textCard h1{
+  transform: translateY(-15px);
   transition: 0.35s;
 }
 
-.card:not(:hover) {
-  font-size: 0em;
+.card:not(:hover) .textCard h1{
+  transform: translateY(150px);
   transition: 0.35s;
 }
 
 .hide {
-  filter: blur(10px) grayscale(100%);
+  backdrop-filter: blur(10px) grayscale(100%);
 }
 
 .textCard {
-  width: 0%;
-  padding-left: 10%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
   filter: none;
+  padding-left: 10%;
 }
-/* .hide:hover {
-  font-size: 0em;
-  box-shadow: none;
-} */
+
+
 </style>
