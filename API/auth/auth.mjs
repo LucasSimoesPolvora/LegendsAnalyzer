@@ -2,11 +2,11 @@ import jwt from "jsonwebtoken"
 import { privateKey } from "./private_key.mjs"
 
 const auth = (req, res, next) => {
-    const authorizationHeaders = req.header.authorization;
+    const authorizationHeaders = req.headers.authorization;
 
     // Checking if the header exists
     if(!authorizationHeaders){
-        const message = "Unvalid token or token not provided"
+        const message = `Unvalid token or token not provided`
         res.status(401).json({ message })
     } else {
         // Extracting the token
