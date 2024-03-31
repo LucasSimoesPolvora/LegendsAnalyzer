@@ -34,3 +34,5 @@ const auth = (req, res, next) => {
         })
     }
 }
+
+export { auth }
