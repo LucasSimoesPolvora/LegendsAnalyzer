@@ -1,8 +1,8 @@
 import express from 'express';
 import { initDb } from './db/sequelize.mjs';
-import { loginRouter } from './login/login.mjs';
-import { signUpRouter } from './signUp/signup.mjs';
-import { changePasswordRouter } from './changePassword/changePassword.mjs';
+import { loginRouter } from './routers/login/login.mjs';
+import { signUpRouter } from './routers/signUp/signup.mjs';
+import { changePasswordRouter } from './routers/changePassword/changePassword.mjs';
 import 'dotenv/config'
 
 const app = express()
@@ -24,6 +24,8 @@ app.use('/login', loginRouter)
 app.use('/signup', signUpRouter)
 
 app.use('/changepassword', changePasswordRouter)
+
 app.use(({ res }) => {
     const message = "No ressource found. Try another URL"
+    res.send(message)
 })

@@ -1,9 +1,9 @@
 import express from "express"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import { User } from "../db/sequelize.mjs"
-import { privateKey } from "../auth/private_key.mjs"
-import { auth } from "../auth/auth.mjs"
+import { User } from "../../db/sequelize.mjs"
+import { privateKey } from "../../auth/private_key.mjs"
+import { auth } from "../../auth/auth.mjs"
 
 // Creating the router
 const changePasswordRouter = express();
