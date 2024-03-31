@@ -25,7 +25,12 @@ const userModel = (sequelize, DataTypes) => {
             email: {
                 type: DataTypes.STRING,
                 validate: {
-                    is: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    isEmail: {
+                        msg:"The email isn't valid"
+                    },
+                    notNull:{
+                        msg:"The email is required"
+                    },
                 },
                 allowNull: false
             },
@@ -36,7 +41,10 @@ const userModel = (sequelize, DataTypes) => {
                     min: {
                         args:[10],
                         msg: "The password length doesn't match the requirements"
-                    }
+                    },
+                    notNull:{
+                        msg:"The password is required"
+                    },
                 }
             }
         },
