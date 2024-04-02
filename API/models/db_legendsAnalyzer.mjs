@@ -32,14 +32,15 @@ const userModel = (sequelize, DataTypes) => {
                         msg:"The email is required"
                     },
                 },
-                allowNull: false
+                allowNull: false,
+                unique: true
             },
             password: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
-                    min: {
-                        args:[10],
+                    len: {
+                        args:[10, 1000],
                         msg: "The password length doesn't match the requirements"
                     },
                     notNull:{
