@@ -3,7 +3,7 @@
     <div class="textCard" :class="{ hide: isHide }">
       <div>
         <h1>{{ title }}</h1>
-        <a v-show="!isHide">Learn more</a>
+        <a v-show="!isHide" href="#">Learn more</a>
       </div>
     </div>
   </div>
@@ -51,6 +51,14 @@ export default {
 .card:not(:hover) .textCard div {
   transform: translateY(150px);
   transition: 0.35s;
+}
+
+.card .textCard a {
+  color: white;
+  text-decoration: none;
+  background-color: #9067c6; 
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .hide {
