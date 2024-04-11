@@ -1,6 +1,6 @@
 <template>
-    <div>
-        
+    <div class="socialCard">
+        <img :src="iconLink" alt="icon">
     </div>
 </template>
 <script>

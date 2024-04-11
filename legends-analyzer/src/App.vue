@@ -1,6 +1,6 @@
 <script setup>
-import HeaderComponent from './components/LobbyHeader.vue'
-import MainComponent from './components/Main.vue'
+import HeaderComponent from './components/Lobby/LobbyHeader.vue'
+import MainComponent from './components/Lobby/Main.vue'
 
 </script>
 
