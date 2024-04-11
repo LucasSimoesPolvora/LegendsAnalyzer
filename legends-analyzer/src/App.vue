@@ -1,5 +1,5 @@
 <script setup>
-import HeaderComponent from './components/Header.vue'
+import HeaderComponent from './components/LobbyHeader.vue'
 import MainComponent from './components/Main.vue'
 
 </script>
