@@ -4,9 +4,11 @@ import { loginRouter } from './routers/login/login.mjs';
 import { signUpRouter } from './routers/signUp/signup.mjs';
 import { changePasswordRouter } from './routers/changePassword/changePassword.mjs';
 import 'dotenv/config'
+import helmet from 'helmet'
 
 const app = express()
 app.use(express.json())
+app.use(helmet())
 const port = 3000
 
 initDb()
