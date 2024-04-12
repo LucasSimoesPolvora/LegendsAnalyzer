@@ -7,6 +7,7 @@ import MainComponent from './components/Lobby/Main.vue'
 <template>
   <HeaderComponent></HeaderComponent>
   <MainComponent></MainComponent>
+  <a href="/about"></a>
 </template>
 
 <style scoped>

@@ -4,13 +4,15 @@
       <h1>Our social networks</h1>
       <p>Join Us</p>
     </div>
-    <SocialCard iconClass="pi-facebook" title="Facebook" link="https://www.facebook.com/" :color="'red'"></SocialCard>
+    <div class="socialCard" :style="{backgroundColor: 'red'}">
+        <AkDiscordFill class="icon"/>
+        <h3>Discord</h3>
+    </div>
   </div>
 </template>
 
 <script setup>
-import SocialCard from './SocialCard.vue'
-
+import { AkDiscordFill } from "@kalimahapps/vue-icons";
 </script>
 
 <script>
@@ -24,5 +26,19 @@ export default {}
   justify-content: center;
   height: 50vh;
   color: white;
+}
+
+.socialCard {
+    width: 20vh;
+    height: 100px;
+}
+
+.socialCard img {
+    width: 20%;
+    object-fit: cover;
+}
+
+.icon {
+  font-size: 2.3em;
 }
 </style>
