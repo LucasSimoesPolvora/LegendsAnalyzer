@@ -5,10 +5,13 @@ import { signUpRouter } from './routers/signUp/signup.mjs';
 import { changePasswordRouter } from './routers/changePassword/changePassword.mjs';
 import 'dotenv/config'
 import helmet from 'helmet'
+import cors from 'cors'
 
 const app = express()
 app.use(express.json())
 app.use(helmet())
+app.use(cors())
+
 const port = 3000
 
 initDb()
