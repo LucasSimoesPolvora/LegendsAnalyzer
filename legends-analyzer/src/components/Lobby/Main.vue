@@ -1,12 +1,12 @@
 <template>
     <main>
-        <ChoseCard></ChoseCard>
-        <SocialMedia></SocialMedia>
+        <StatsCard />
+        <!-- <SocialMedia /> -->
     </main>
 </template>
 
 <script setup>
-import ChoseCard from './ChoseCard.vue'
+import StatsCard from './StatsCard.vue'
 import SocialMedia from './SocialMedia.vue'
 </script>
 
