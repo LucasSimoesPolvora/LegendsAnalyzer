@@ -22,7 +22,9 @@
         </div>
       </div>
     </div>
-    <RouterLink to="/lobby" class="see_more">See more</RouterLink>
+    <div class="center">
+      <RouterLink to="/lobby" class="see_more">See more</RouterLink>
+    </div>
   </div>
 </template>
 
@@ -129,8 +131,14 @@ export default {
 .see_more {
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 20px 40px;
   background-color: #8d86c9;
   border-radius: 5px;
+}
+
+.center {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
 }
 </style>
