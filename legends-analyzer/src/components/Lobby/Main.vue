@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import ChoseCard from './MainComponents/ChoseCard.vue'
-import SocialMedia from './MainComponents/SocialMedia.vue'
+import ChoseCard from './ChoseCard.vue'
+import SocialMedia from './SocialMedia.vue'
 </script>
 
 <script>

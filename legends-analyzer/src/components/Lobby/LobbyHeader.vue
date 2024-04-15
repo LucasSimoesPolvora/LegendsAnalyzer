@@ -49,7 +49,7 @@ header {
 }
 
 .text a {
-  padding: 30px 50px;
+  padding: 30px 40px;
   background-color: #8d86c9;
   text-decoration: none;
   border: 1px solid white;
@@ -59,6 +59,7 @@ header {
 
 .text a:hover {
   background-color: #6c63a4;
+  clip-path: none;
   border-radius: 0 30px 0 30px;
   transition: 0.5s;
 }

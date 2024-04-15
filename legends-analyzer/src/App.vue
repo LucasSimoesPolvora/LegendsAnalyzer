@@ -1,13 +1,9 @@
 <script setup>
-import HeaderComponent from './components/Lobby/LobbyHeader.vue'
-import MainComponent from './components/Lobby/Main.vue'
-
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <HeaderComponent></HeaderComponent>
-  <MainComponent></MainComponent>
-  <a href="/about"></a>
+  <RouterView />
 </template>
 
 <style scoped>
