@@ -3,6 +3,7 @@ import { initDb } from './db/sequelize.mjs';
 import { loginRouter } from './routers/login/login.mjs';
 import { signUpRouter } from './routers/signUp/signup.mjs';
 import { changePasswordRouter } from './routers/changePassword/changePassword.mjs';
+import { testRouter } from './routers/test/test.mjs';
 import 'dotenv/config'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -12,7 +13,7 @@ app.use(express.json())
 app.use(helmet())
 app.use(cors())
 
-const port = 3000
+const port = 8083
 
 initDb()
 
@@ -29,6 +30,8 @@ app.use('/login', loginRouter)
 app.use('/signup', signUpRouter)
 
 app.use('/changepassword', changePasswordRouter)
+
+app.use('/test16042024', testRouter)
 
 app.use(({ res }) => {
     const message = "No ressource found. Try another URL"
