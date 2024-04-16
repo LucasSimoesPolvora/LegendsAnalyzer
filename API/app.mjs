@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(helmet())
 app.use(cors())
 
-const port = 3000
+const port = 8083
 
 initDb()
 
