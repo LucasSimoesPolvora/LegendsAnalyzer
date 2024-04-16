@@ -4,47 +4,49 @@
 
 <template>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
-    <div class="wrapper">
-        <form action="">
-            <h1>Login</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Username" required>
-                <i class='bx bxs-user'></i>
-            </div>
+    <div class="global">
+        <div class="wrapper">
+            <form action="">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
 
-            <div class="input-box">
-                <input type="text" placeholder="Password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
 
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
-                <RouterLink class="link" to="/forgotPassword">Forgot Password ?</RouterLink>
-            </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <RouterLink class="link" to="/forgotPassword">Forgot Password ?</RouterLink>
+                </div>
 
-            <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn">Login</button>
 
-            <div class="register-link">
-                <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink></p>
-            </div> 
-        </form>
+                <div class="register-link">
+                    <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink>
+                    </p>
+                </div>
+            </form>
+        </div>
     </div>
+    <RouterLink to="/">dsdsdsdsd</RouterLink>
 </template>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+body {
+    height: 100%;
+    background: black;
 }
 
-body {
+.global {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: black;
+    width: 100%;
+    height: 100%
 }
 
 .wrapper {
@@ -60,7 +62,7 @@ body {
     text-align: center
 }
 
-.wrapper .input-box{
+.wrapper .input-box {
     position: relative;
     width: 100%;
     height: 50px;
@@ -79,7 +81,7 @@ body {
     padding: 20px 45px 20px 20px
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
     color: #fff;
 }
 
@@ -91,14 +93,14 @@ body {
     font-size: 20px;
 }
 
-.wrapper .remember-forgot{
+.wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
     margin: -15px 0 15px
 }
 
-.remember-forgot label input{
+.remember-forgot label input {
     accent-color: #fff;
     margin-right: 3px;
 }
@@ -126,19 +128,19 @@ body {
     font-weight: 600;
 }
 
-.wrapper .regiser-link{
+.wrapper .regiser-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link p .link{
+.register-link p .link {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p .link:hover{
+.register-link p .link:hover {
     text-decoration: underline;
 }
 </style>
