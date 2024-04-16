@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <div class="wrapper">
         <form action="">
             <h1>Login</h1>
@@ -22,14 +22,13 @@
                 <RouterLink class="link" to="/forgotPassword">Forgot Password ?</RouterLink>
             </div>
 
-            <button type="submit" class="btn">Login</button><RouterLink>DOASKDOADKo</RouterLink>
+            <button type="submit" class="btn">Login</button>
 
             <div class="register-link">
                 <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink></p>
             </div> 
         </form>
-    </div> -->
-    <RouterLink to="/">dsdasdadsad</RouterLink>
+    </div>
 </template>
 
 <style>
@@ -45,7 +44,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('LoginBackground.jpg') no-repeat;
+    background: black;
 }
 
 .wrapper {
