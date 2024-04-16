@@ -9,7 +9,4 @@ import MainComponent from '@/components/Lobby/Main.vue'
 </template>
 
 <style>
-#app {
-  width: 100%
-}
 </style>

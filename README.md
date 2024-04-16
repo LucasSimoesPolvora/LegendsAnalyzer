@@ -12,7 +12,8 @@ LegendsAnalyzer is an online platform using the League of Legends API to provide
 ### Champion Infos
 - https://ddragon.leagueoflegends.com/cdn/14.7.1/data/en_US/champion.json
 
-
+### Esport API (2)
+- https://abiosgaming.com/docs
 
 # Authors
 
