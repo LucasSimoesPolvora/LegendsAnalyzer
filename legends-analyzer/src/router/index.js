@@ -1,20 +1,22 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
+import LobbyView from "../views/LobbyView.vue";
+import LoginView from "../views/LoginView.vue";
 
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: () => import('../views/LobbyView.vue')
+        component: LobbyView
     },
     {
         path: '/login',
         name: 'Login',
-        component: () => import('../views/LoginView.vue')
+        component: LoginView
     }
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes
 });
 

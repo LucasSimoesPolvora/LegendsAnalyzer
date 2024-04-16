@@ -8,4 +8,8 @@ import MainComponent from '@/components/Lobby/Main.vue'
   <MainComponent />
 </template>
 
-<style></style>
+<style>
+#app {
+  width: 100%
+}
+</style>
