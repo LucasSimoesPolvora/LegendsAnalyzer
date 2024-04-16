@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import router from './rooter';
+import router from './router';
 
 import Particles from '@tsparticles/vue3';
 import { loadSlim } from '@tsparticles/slim';
