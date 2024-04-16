@@ -35,18 +35,13 @@
     <RouterLink to="/">dsdsdsdsd</RouterLink>
 </template>
 
-<style>
-body {
-    height: 100%;
-    background: black;
-}
+<style scoped>
 
 .global {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .wrapper {

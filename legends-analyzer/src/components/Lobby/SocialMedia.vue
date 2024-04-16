@@ -34,7 +34,7 @@ import { AkDiscordFill, AkInstagramFill, AkTwitterFill } from '@kalimahapps/vue-
 <script>
 export default {}
 </script>
-<style>
+<style scoped>
 .socialMediaPart {
   display: flex;
   align-items: center;
