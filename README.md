@@ -15,6 +15,9 @@ LegendsAnalyzer is an online platform using the League of Legends API to provide
 ### Esport API (2)
 - https://abiosgaming.com/docs
 
+### Icon Library
+- https://vue-icons.kalimah-apps.com/?ref=madewithvuejs.com
+
 # Authors
 
 | <h3><a href="https://github.com/LucasSimoesPolvora">@LucasSimoesPolvora</a></h3> | <h3><a href="https://github.com/ThomNardou">@ThomNardou</a></h3> |

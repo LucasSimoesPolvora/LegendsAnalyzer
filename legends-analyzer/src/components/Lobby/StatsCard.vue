@@ -52,11 +52,11 @@ export default {
           image: 'https://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/Akali.png'
         },
         {
-          champion: 'Alistar',
-          title: 'The Minotaur',
-          soloWinrate: 4,
-          flexWinrate: 10,
-          image: 'https://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/Alistar.png'
+          champion: 'Ezreal',
+          title: 'The Prodigal Explorer',
+          soloWinrate: 60,
+          flexWinrate: 70,
+          image: 'https://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/Ezreal.png'
         },
         {
           champion: 'Hecarim',

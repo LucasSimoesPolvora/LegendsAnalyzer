@@ -114,7 +114,7 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .team > h4 {

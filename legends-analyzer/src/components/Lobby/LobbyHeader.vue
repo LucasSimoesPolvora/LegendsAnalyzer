@@ -1,6 +1,7 @@
 <template>
   <vue-particles id="tsparticles" url="/particlesjs-config.json" />
   <header>
+    <NavBar />
     <div class="text">
       <h1>Hello summoner ! Welcome to</h1>
       <a href="#">Get Started</a>
@@ -14,6 +15,10 @@ window.addEventListener('scroll', () => {
   const header = document.querySelector('header')
   // header.style.filter = `brightness(${1 - window.scrollY / 800})`;
 })
+</script>
+
+<script setup>
+import NavBar from './NavBar.vue';
 </script>
 
 <style scoped>
