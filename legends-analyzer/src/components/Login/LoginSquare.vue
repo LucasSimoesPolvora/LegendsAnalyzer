@@ -1,5 +1,19 @@
-<script setup>
-
+<script>
+export default {
+    data() {
+        return {
+            isShowed: false
+        }
+    },
+    methods: {
+        showPassword() {
+            this.isShowed = true
+        },
+        hidePassword() {
+            this.isShowed = false
+        }
+    }
+}
 </script>
 
 <template>
@@ -14,8 +28,8 @@
                 </div>
 
                 <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt'></i>
+                    <input :type="isShowed ? 'text' : 'password'" placeholder="Password" required>
+                    <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword()" @mouseup="hidePassword()"></i>
                 </div>
 
                 <div class="remember-forgot">
@@ -26,8 +40,7 @@
                 <button type="submit" class="btn">Login</button>
 
                 <div class="register-link">
-                    <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink>
-                    </p>
+                    <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink></p>
                 </div>
             </form>
         </div>

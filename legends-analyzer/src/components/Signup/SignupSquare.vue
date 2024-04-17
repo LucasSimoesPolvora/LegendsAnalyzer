@@ -43,11 +43,14 @@ export default {
                 <div class="input-box">
                     <input :type="isShowed[1] ? 'text' : 'password'" placeholder="Confirm password" class="password"
                         required>
-                    <i :class="isShowed[1] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(1)"
-                        @mouseup="hidePassword(1)"></i>
+                    <i :class="isShowed[1] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(1)" @mouseup="hidePassword(1)"></i>
                 </div>
 
                 <button type="submit" class="btn">Sign Up</button>
+
+                <div class="login-link">
+                    <p>Already have an account? <RouterLink class="link" to="/login">Login</RouterLink></p>
+                </div>
             </form>
         </div>
     </div>
@@ -150,19 +153,19 @@ export default {
     font-weight: 600;
 }
 
-.wrapper .regiser-link {
+.wrapper .login-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link p .link {
+.login-link p .link {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p .link:hover {
+.login-link p .link:hover {
     text-decoration: underline;
 }
 </style>
