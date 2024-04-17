@@ -39,7 +39,7 @@ export default {
     async getEsportNews() {
       const options = {
         method: 'GET',
-        url: 'https://api.pandascore.co/lol/matches?filter[status]=finished',
+        url: 'https://api.pandascore.co/lol/matches?filter[status]=finished&sort=-end_at',
         headers: {
           Authorization: 'Bearer ovxjJiSJUd0WNzEGwhkCqLmcqaJSvJXkDlMKea4Gc6CsFoYOphY'
         }
@@ -48,8 +48,14 @@ export default {
       try {
         const response = await axios.request(options)
 
-        for (let i = 0; i < 4; i++) {
-          this.esportResult.push(response.data[i])
+        let limit = 4;
+
+        for (let i = 0; i < limit; i++) {
+          if (response.data[i].end_at === null) {
+            limit++
+          } else {
+            this.esportResult.push(response.data[i])
+          }
         }
 
         console.log(this.esportResult)

@@ -7,6 +7,7 @@ import { RouterLink, RouterView } from 'vue-router';
 </template>
 
 <style>
-
-
+footer {
+  background-color: black;
+}
 </style>
