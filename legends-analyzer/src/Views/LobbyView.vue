@@ -9,4 +9,7 @@ import MainComponent from '@/components/Lobby/Main.vue'
 </template>
 
 <style>
+main {
+  background-color: black;
+}
 </style>

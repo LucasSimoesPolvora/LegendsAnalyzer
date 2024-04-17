@@ -22,6 +22,6 @@ export default {}
 .card {
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 </style>

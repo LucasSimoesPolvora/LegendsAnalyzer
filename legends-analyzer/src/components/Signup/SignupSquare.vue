@@ -1,12 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 
-//let isShowed = ref[false, false]
-export default {
-    setup() {
-        
-    }
-}
 const showPassword = (doc, nbr) => {
     console.log(nbr + " is showed")
     // x = doc.closest('.password');
