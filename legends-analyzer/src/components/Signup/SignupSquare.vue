@@ -50,19 +50,20 @@ const hidePassword = (number) => {
 </template>
 
 <style>
-body {
+
+.global {
+    width: 100%;
+    height: 100vh;
     background: url('Arena.jpg') no-repeat;
+    background-position: center;
     background-size: cover;
 }
 
-.global {
+.wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.wrapper {
     width: 420px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);

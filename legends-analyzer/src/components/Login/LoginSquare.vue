@@ -36,8 +36,6 @@
 </template>
 
 <style scoped>
-body {
-}
 
 .global {
     width: 100%;
