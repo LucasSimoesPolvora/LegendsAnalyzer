@@ -44,7 +44,6 @@ export default {
                 </div>
             </form>
         </div>
-        <RouterLink to="/">dsdsdsdsd</RouterLink>
     </div>
 </template>
 
@@ -149,7 +148,7 @@ export default {
     font-weight: 600;
 }
 
-.wrapper .regiser-link {
+.wrapper .register-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
