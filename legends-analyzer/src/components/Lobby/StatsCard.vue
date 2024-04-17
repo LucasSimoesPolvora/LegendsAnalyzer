@@ -10,7 +10,7 @@
     <div class="cardStats_body">
       <div class="champion" v-for="stat in stats" :key="stat.champion">
         <div class="champion_info">
-          <img :src="stat.image" alt="champion" />
+          <img :src="stat.image" :alt="stat.champion" />
           <div>
             <h4>{{ stat.champion }}</h4>
             <p>{{ stat.title }}</p>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="center">
-      <RouterLink to="/lobby" class="see_more">See more</RouterLink>
+      <RouterLink to="#" class="see_more">See more</RouterLink>
     </div>
   </div>
 </template>
@@ -82,7 +82,7 @@ export default {
 <style scoped>
 .statsCard {
   /* background-color: #1e1e1e; */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)),
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.7)),
     url('/LolPictures/1327236.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -91,7 +91,8 @@ export default {
   padding: 20px;
   margin: 10px;
   width: 30%;
-  
+  height: 75vh;
+  /* border: 5px aqua solid; */
 }
 
 .champion {
@@ -134,6 +135,15 @@ export default {
   padding: 20px 40px;
   background-color: #8d86c9;
   border-radius: 5px;
+}
+
+.see_more:hover {
+  background-color: #6c63a4;
+  transition: 0.5s;
+}
+
+.see_more:not(:hover) {
+  transition: 0.5s;
 }
 
 .center {
