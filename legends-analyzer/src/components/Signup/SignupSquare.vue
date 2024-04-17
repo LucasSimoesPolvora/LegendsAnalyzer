@@ -1,18 +1,20 @@
-<script setup>
-import { ref } from 'vue'
-
-const showPassword = (doc, nbr) => {
-    console.log(nbr + " is showed")
-    // x = doc.closest('.password');
-    // console.log(x) 
-    // isShowed[nbr] = true
-}
-
-const hidePassword = (number) => {
-    console.log(nbr + " is hidden")
-    // x = document.getElementsByClassName("password")[number];
-    // console.log(x)
-    // isShowed[nbr] = false
+<script>
+export default {
+    data() {
+        return {
+            isShowed: [false, false]
+        }
+    },
+    methods: {
+        showPassword(nbr) {
+            this.isShowed[nbr] = true
+            console.log(this.isShowed[nbr])
+        },
+        hidePassword(nbr) {
+            this.isShowed[nbr] = false
+            console.log(this.isShowed[nbr])
+        }
+    }
 }
 </script>
 
@@ -33,13 +35,16 @@ const hidePassword = (number) => {
                 </div>
 
                 <div class="input-box">
-                    <input :type="isShowed1 ? 'text' : 'password'" placeholder="Password" class="password" required>
-                    <i :class="isShowed2 ? 'bx bx-show': 'bx bxs-hide' " @mousedown="showPassword(this, 0)" @mouseup="hidePassword(this, 0)"></i>
+                    <input :type="isShowed[0] ? 'text' : 'password'" placeholder="Password" class="password" required>
+                    <i :class="isShowed[0] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(0)"
+                        @mouseup="hidePassword(0)"></i>
                 </div>
 
                 <div class="input-box">
-                    <input :type="isShowed2 ? 'text' : 'password'" placeholder="Confirm password" class="password" required>
-                    <i :class="isShowed2 ? 'bx bx-show': 'bx bxs-hide' " @mousedown="showPassword(this, 1)" @mouseup="hidePassword(this, 1)"></i>
+                    <input :type="isShowed[1] ? 'text' : 'password'" placeholder="Confirm password" class="password"
+                        required>
+                    <i :class="isShowed[1] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(1)"
+                        @mouseup="hidePassword(1)"></i>
                 </div>
 
                 <button type="submit" class="btn">Sign Up</button>
@@ -50,7 +55,6 @@ const hidePassword = (number) => {
 </template>
 
 <style>
-
 .global {
     width: 100%;
     height: 100vh;
