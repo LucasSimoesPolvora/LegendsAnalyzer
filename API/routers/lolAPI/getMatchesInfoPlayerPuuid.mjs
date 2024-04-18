@@ -7,7 +7,7 @@ const getMatchesInfoPuuid = express();
 // endpoint for handling the router
 getMatchesInfoPuuid.get("/", async (req, res) => {
     const API_KEY = process.env.API_KEY
-    let matchesID = ''
+    let matchesIDs = []
 
     let puuid = req.body.puuid
 
@@ -30,7 +30,7 @@ getMatchesInfoPuuid.get("/", async (req, res) => {
         if (!result) {
             res.status(404).json({ msg: 'No matches were found !' })
         }
-        matchesID = result
+        matchesIDs = result.data
     }).catch((err) => {
         res.status(500).json({
             msg: 'A problem occured while we treated your request ! Try again later',
@@ -38,7 +38,26 @@ getMatchesInfoPuuid.get("/", async (req, res) => {
         })
     })
 
-    await axios.get()
+    const APICallMatchInfo = 'https://europe.api.riotgames.com/lol/match/v5/matches/'
+
+    let matchesInfo = []
+    matchesIDs.forEach((matchId, index) => {
+        axios.get(APICallMatchInfo + matchId)
+            .then((result) => {
+                if(!result) {
+                    matchesInfo[index] = {data: 'cannot get the data about this game !', status: 404}
+                }
+                matchesInfo[index] = {data: result.data}
+
+            }).catch((error) => {
+                matchesInfo[index] = {data: 'A problem occured while we treated your request ! Try again later : ' + error, status: 500}
+            })
+            if(matchesInfo[index].status){
+                res.json(matchesInfo[index].status).json({data: matchesInfo[index].data })
+            }
+    })
+    res.json(200).json({data: matchesInfo })
 });
+
 
 export { getMatchesInfoPuuid };
