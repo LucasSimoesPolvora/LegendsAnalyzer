@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
-import LobbyView from "@/views/LobbyView.vue";
-import LoginView from "@/views/LoginView.vue";
-import SignupView from "@/views/SignupView.vue";
+import LobbyView from "@/Views/LobbyView.vue";
+import LoginView from "@/Views/LoginView.vue";
+import SignupView from "@/Views/SignupView.vue";
 
 const routes = [
     {
