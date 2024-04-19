@@ -1,4 +1,6 @@
 <script>
+import axios from 'redaxios'
+
 export default {
     data() {
         return {
@@ -11,6 +13,28 @@ export default {
         },
         hidePassword() {
             this.isShowed = false
+        },
+        async login() {
+            let nickname = document.getElementsByClassName('nickname')
+
+            let password = document.getElementsByClassName('password')
+            let APICall = 'http://localhost:3000/login  '
+            console.log('owakodkawodkao')
+            await axios.get(APICall, {
+                data:
+                {
+                    nickname: nickname,
+                    password: password
+                }
+
+            }).then((result) => {
+                console.log(result)
+                console.log('waiiiit')
+
+            }).catch((error) => {
+                console.log("An error occured" + error)
+                console.log('waiiiit')
+            })
         }
     }
 }
@@ -23,13 +47,14 @@ export default {
             <form action="">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" placeholder="Username" class="nickname" required>
                     <i class='bx bxs-user'></i>
                 </div>
 
                 <div class="input-box">
-                    <input :type="isShowed ? 'text' : 'password'" placeholder="Password" required>
-                    <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword()" @mouseup="hidePassword()"></i>
+                    <input :type="isShowed ? 'text' : 'password'" placeholder="Password" class="password" required>
+                    <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword()"
+                        @mouseup="hidePassword()"></i>
                 </div>
 
                 <div class="remember-forgot">
@@ -37,10 +62,11 @@ export default {
                     <RouterLink class="link" to="/forgotPassword" id="forgot">Forgot Password ?</RouterLink>
                 </div>
 
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn" @click="login()">Login</button>
 
                 <div class="register-link">
-                    <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink></p>
+                    <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink>
+                    </p>
                 </div>
             </form>
         </div>
@@ -48,7 +74,6 @@ export default {
 </template>
 
 <style scoped>
-
 .global {
     width: 100%;
     height: 100vh;
