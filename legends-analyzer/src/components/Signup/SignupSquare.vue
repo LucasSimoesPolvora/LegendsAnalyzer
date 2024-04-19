@@ -8,11 +8,9 @@ export default {
     methods: {
         showPassword(nbr) {
             this.isShowed[nbr] = true
-            console.log(this.isShowed[nbr])
         },
         hidePassword(nbr) {
             this.isShowed[nbr] = false
-            console.log(this.isShowed[nbr])
         }
     }
 }
