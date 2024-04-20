@@ -2,7 +2,11 @@
 export default {
     data() {
         return {
-            isShowed: [false, false]
+            isShowed: [false, false],
+            usernameError: '',
+            emailError: '',
+            passwordError: '',
+            passwordConfirmationError: ''
         }
     },
     methods: {
@@ -11,6 +15,42 @@ export default {
         },
         hidePassword(nbr) {
             this.isShowed[nbr] = false
+        },
+        async signup(){
+            // Prevent the refresh to debug
+            event.preventDefault()
+
+            // Getting the nickname input value
+            let nickname = document.getElementsByClassName('nickname')[0].value
+
+            // Getting the password input value
+            let password = document.getElementsByClassName('password')[0].value
+
+            let email = document.getElementsByClassName('email')[0].value
+
+            // Getting the password input value
+            let passwordConfirmation = document.getElementsByClassName('password')[1].value
+
+            // Variable that contains the api call
+            let APICall = 'http://localhost:3000/signup'
+
+            // POST with axios with the nickname and the password
+            await axios.post(APICall, {
+                nickname: nickname,
+                email: email,
+                password: password
+            }).then((result) => {
+                // Returning the result
+                console.log(result)
+
+            }).catch((error) => {
+                console.log(error)
+                // If it's an error 401 it's a password issue
+                if (error.status == 401) {
+                    this.passwordError = error.data.message
+                    this.passwordConfirmationError = error.data.message
+                }
+            })
         }
     }
 }
@@ -23,28 +63,32 @@ export default {
             <form action="">
                 <h1>Sign Up</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" placeholder="Username" class="username" required>
                     <i class='bx bxs-user'></i>
+                    <p>{{ usernameError }}</p>
                 </div>
 
                 <div class="input-box">
-                    <input type="text" placeholder="Email" required>
+                    <input type="text" placeholder="Email" class="email" required>
                     <i class='bx bxs-envelope'></i>
+                    <p>{{ emailError }}</p>
                 </div>
 
                 <div class="input-box">
                     <input :type="isShowed[0] ? 'text' : 'password'" placeholder="Password" class="password" required>
                     <i :class="isShowed[0] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(0)"
                         @mouseup="hidePassword(0)"></i>
+                        <p>{{ passwordError }}</p>
                 </div>
 
                 <div class="input-box">
                     <input :type="isShowed[1] ? 'text' : 'password'" placeholder="Confirm password" class="password"
                         required>
                     <i :class="isShowed[1] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(1)" @mouseup="hidePassword(1)"></i>
+                    <p>{{ passwordConfirmationError }}</p>
                 </div>
 
-                <button type="submit" class="btn">Sign Up</button>
+                <button type="submit" class="btn" @click="signup()">Sign Up</button>
 
                 <div class="login-link">
                     <p>Already have an account? <RouterLink class="link" to="/login">Login</RouterLink></p>

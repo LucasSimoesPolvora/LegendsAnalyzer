@@ -37,7 +37,7 @@ loginRouter.post("/", (req, res) => {
         .catch((error) => {
             // If an error occurs during the process, return a generic error message
             const message = `The user couldn't be connected. Try again later`;
-            return res.status(501).json({ message, data: error });
+            return res.status(500).json({ message, data: error });
         })
 })
 
