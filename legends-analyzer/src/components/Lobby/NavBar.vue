@@ -30,9 +30,6 @@ window.addEventListener('scroll', () => {
   let navbar = document.querySelector('nav')
   let option = document.querySelector('.option')
 
-  console.log(window.scrollY)
-  console.log(oldScrollY)
-
   if (window.scrollY > oldScrollY) {
     navbar.style.top = `-${navbar.offsetHeight}px`
     navbar.style.transition = '0.3s'
