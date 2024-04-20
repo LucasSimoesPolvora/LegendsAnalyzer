@@ -26,7 +26,7 @@ changePasswordRouter.put("/:id", auth, (req, res) => {
                 res.status(404).json({ message });
               }
               // If the user is updated successfuly. return code 200
-              const message = `The user ${updatedUser.nickname} was successfuly updated`;
+              const message = `The user ${updatedUser.username} was successfuly updated`;
               res.status(200).json({ message });
             });
           })

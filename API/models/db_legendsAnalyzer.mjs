@@ -7,15 +7,15 @@ const userModel = (sequelize, DataTypes) => {
                 primaryKey: true,
                 autoIncrement: true
             },
-            nickname: {
+            username: {
                 type: DataTypes.STRING,
                 validate: {
                     notNull:{
-                        msg:"The nickname is required"
+                        msg:"The username is required"
                     },
                     len:{
                         args:[3, 100],
-                        msg:"The nickname length doesn't match the requirements"
+                        msg:"The username length doesn't match the requirements"
                     },
 
                 },

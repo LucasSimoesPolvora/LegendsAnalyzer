@@ -20,8 +20,8 @@ export default {
             // Prevent the refresh to debug
             event.preventDefault()
 
-            // Getting the nickname input value
-            let nickname = document.getElementsByClassName('nickname')[0].value
+            // Getting the username input value
+            let username = document.getElementsByClassName('username')[0].value
 
             // Getting the password input value
             let password = document.getElementsByClassName('password')[0].value
@@ -34,9 +34,9 @@ export default {
             // Variable that contains the api call
             let APICall = 'http://localhost:3000/signup'
 
-            // POST with axios with the nickname and the password
+            // POST with axios with the username and the password
             await axios.post(APICall, {
-                nickname: nickname,
+                username: username,
                 email: email,
                 password: password
             }).then((result) => {
