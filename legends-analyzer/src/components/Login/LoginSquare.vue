@@ -4,7 +4,9 @@ import axios from 'redaxios'
 export default {
     data() {
         return {
-            isShowed: false
+            isShowed: false,
+            usernameError: '',
+            passwordError: ''
         }
     },
     methods: {
@@ -15,25 +17,37 @@ export default {
             this.isShowed = false
         },
         async login() {
-            let nickname = document.getElementsByClassName('nickname')
+            // Prevent the refresh to debug
+            event.preventDefault()
 
-            let password = document.getElementsByClassName('password')
-            let APICall = 'http://localhost:3000/login  '
-            console.log('owakodkawodkao')
-            await axios.get(APICall, {
-                data:
-                {
-                    nickname: nickname,
-                    password: password
-                }
+            // Getting the nickname input value
+            let nickname = document.getElementsByClassName('nickname')[0].value
 
+            // Getting the password input value
+            let password = document.getElementsByClassName('password')[0].value
+
+            // Variable that contains the api call
+            let APICall = 'http://localhost:3000/login'
+
+            // POST with axios with the nickname and the password
+            await axios.post(APICall, {
+                nickname: nickname,
+                password: password
             }).then((result) => {
+                // Returning the result
                 console.log(result)
-                console.log('waiiiit')
 
             }).catch((error) => {
-                console.log("An error occured" + error)
-                console.log('waiiiit')
+                console.log(error)
+                // If it's an error 401 it's a password issue
+                if (error.status == 401) {
+                    this.passwordError = error.data.message
+                }
+                // If it's an error 404 it's a username issue
+                else if (error.status == 404) {
+                    this.usernameError = error.data.message
+                    console.log(this.usernameError)
+                }
             })
         }
     }
@@ -47,14 +61,18 @@ export default {
             <form action="">
                 <h1>Login</h1>
                 <div class="input-box">
+
                     <input type="text" placeholder="Username" class="nickname" required>
                     <i class='bx bxs-user'></i>
+                    <p>{{ usernameError }}</p>
                 </div>
 
                 <div class="input-box">
+
                     <input :type="isShowed ? 'text' : 'password'" placeholder="Password" class="password" required>
                     <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword()"
                         @mouseup="hidePassword()"></i>
+                    <p>{{ passwordError }}</p>
                 </div>
 
                 <div class="remember-forgot">
