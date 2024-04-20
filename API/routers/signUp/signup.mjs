@@ -10,12 +10,12 @@ const signUpRouter = express();
 
 // endpoint for handling the router
 signUpRouter.post("/", (req, res) => {
-  if(req.body.password.length >= process.env.PASS_MIN_LENGTH){
+  if (req.body.password.length >= process.env.PASS_MIN_LENGTH) {
     bcrypt.hash(req.body.password, 10).then((hash) => {
       User.create({
-          nickname: req.body.nickname,
-          email: req.body.email,
-          password: hash
+        username: req.body.username,
+        email: req.body.email,
+        password: hash
       })
         .then((createdUser) => {
           // Return success message upon successful creation

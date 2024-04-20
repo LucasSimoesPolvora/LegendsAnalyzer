@@ -9,7 +9,7 @@ const loginRouter = express();
 // endpoint for handling the router
 loginRouter.post("/", (req, res) => {
     // Finding the user in the database by username
-    User.findOne({ where: { nickname: req.body.nickname }})
+    User.findOne({ where: { username: req.body.username }})
         .then((user) => {
             // If user doesn't exist, return 404 error
             if (!user) {
@@ -37,7 +37,7 @@ loginRouter.post("/", (req, res) => {
         .catch((error) => {
             // If an error occurs during the process, return a generic error message
             const message = `The user couldn't be connected. Try again later`;
-            return res.status(501).json({ message, data: error });
+            return res.status(500).json({ message, data: error });
         })
 })
 

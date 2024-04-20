@@ -47,6 +47,8 @@ export default {
                 else if (error.status == 404) {
                     this.usernameError = error.data.message
                     console.log(this.usernameError)
+                } else if (error.status == 500){
+                    console.log(error.data.message)
                 }
             })
         }
