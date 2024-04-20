@@ -13,7 +13,7 @@ loginRouter.post("/", (req, res) => {
         .then((user) => {
             // If user doesn't exist, return 404 error
             if (!user) {
-                const message = `The user you asked for doesn't exist `;
+                const message = `Username not found`;
                 return res.status(404).json({ message });
             }
             // Comparing the provided password with the hashed password stored in the database
