@@ -18,7 +18,7 @@ export default {
         },
         async login() {
             // Prevent the refresh to debug
-            Event.preventDefault()
+            event.preventDefault()
 
             // Getting the nickname input value
             let nickname = document.getElementsByClassName('nickname')[0].value
