@@ -142,10 +142,10 @@ nav {
   }
 
   #checked:checked + .option,
-  #checked:checked + .option .login label {
+  #checked:checked + .option .login label { 
     /* display: flex; */
     font-size: 20px;
-    height: auto;
+    height: calc(100vh - 100px);
     transition: 0.25s;
   }
 
