@@ -1,4 +1,6 @@
 <script>
+import axios from 'redaxios'
+
 export default {
     data() {
         return {
@@ -18,7 +20,7 @@ export default {
         },
         async signup(){
             // Prevent the refresh to debug
-            Event.preventDefault()
+            event.preventDefault()
 
             // Getting the username input value
             let username = document.getElementsByClassName('username')[0].value
@@ -35,16 +37,28 @@ export default {
             // Variable that contains the api call
             let APICall = 'http://localhost:3000/signup'
 
+            // If the password and the confiramtion are not matching
             if(password != passwordConfirmation) {
-                passwordConfirmationError = `The passwords don't match`
+                this.passwordConfirmationError = `The passwords don't match`
+                return
             }
 
-            // POST with axios with the username and the password
+            // If the username doesn't have the requierement length
+            if(username.length < 3){
+                this.usernameError = `The username doesn't match the requirements`
+                return
+            }
+
+            // POST with axios with the username, the mail and the password
             await axios.post(APICall, {
                 username: username,
                 email: email,
                 password: password
             }).then((result) => {
+                this.usernameError = ''
+                this.emailError = ''
+                this.passwordError = ''
+                this.passwordConfirmationError = ''
                 // Returning the result
                 console.log(result)
 
@@ -54,6 +68,18 @@ export default {
                 if (error.status == 401) {
                     this.passwordError = error.data.message
                     this.passwordConfirmationError = error.data.message
+                }
+                // If it's an error 400 it's an email issue or a unique username issue
+                else if(error.status == 400) {
+                    if(error.data.data.name == 'SequelizeUniqueConstraintError'){
+                        this.usernameError = 'This username is already taken'
+                        return
+                    }
+                    this.emailError = `The email isn't valid`
+                }
+                // If it's an error 500 it's a server side problem
+                else if(error.status == 500) {
+                    console.log(error.data.message)
                 }
             })
         }
