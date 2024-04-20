@@ -18,21 +18,26 @@ export default {
         },
         async signup(){
             // Prevent the refresh to debug
-            event.preventDefault()
+            Event.preventDefault()
 
             // Getting the username input value
             let username = document.getElementsByClassName('username')[0].value
 
-            // Getting the password input value
-            let password = document.getElementsByClassName('password')[0].value
-
+            // Getting the email input value
             let email = document.getElementsByClassName('email')[0].value
 
             // Getting the password input value
+            let password = document.getElementsByClassName('password')[0].value
+
+            // Getting the password confirmation input value
             let passwordConfirmation = document.getElementsByClassName('password')[1].value
 
             // Variable that contains the api call
             let APICall = 'http://localhost:3000/signup'
+
+            if(password != passwordConfirmation) {
+                passwordConfirmationError = `The passwords don't match`
+            }
 
             // POST with axios with the username and the password
             await axios.post(APICall, {
