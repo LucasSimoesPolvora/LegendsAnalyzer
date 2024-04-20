@@ -1,18 +1,23 @@
 <template>
   <div class="esportNews">
     <h2>Last Matches</h2>
-    <div v-for="news in esportResult" class="esportNewsInfos">
+    <div v-for="news in esportResult" class="esportNewsInfos" >
+
       <div class="oppenents">
         <div class="team">
           <img :src="news.opponents[0].opponent.image_url" :alt="news.opponents[0].opponent.name" />
-          <h4>{{ news.opponents[0].opponent.name }}</h4>
+          <h4 :class="[ news.winner_id == news.opponents[0].opponent.id ? 'winner' : 'looser' ]">{{ news.opponents[0].opponent.name }}</h4>
         </div>
-        <h2>VS</h2>
+        <div class="score">
+          <h2>VS</h2>
+          <h5>{{ news.results[0].score }} / {{ news.results[1].score }}</h5>
+        </div>
         <div class="team">
           <img :src="news.opponents[1].opponent.image_url" :alt="news.opponents[1].opponent.name" />
-          <h4>{{ news.opponents[1].opponent.name }}</h4>
+          <h4 :class="[ news.winner_id == news.opponents[1].opponent.id ? 'winner' : 'looser' ]">{{ news.opponents[1].opponent.name }}</h4>
         </div>
       </div>
+
     </div>
     <div class="center">
       <RouterLink to="#" class="see_more">See more</RouterLink>
@@ -101,6 +106,7 @@ export default {
   align-items: center;
 }
 
+
 .team {
   width: 50%;
   display: flex;
@@ -113,13 +119,39 @@ export default {
 .team > img {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .team > h4 {
-  color: white;
+  font-size: 0.8rem;
   margin: 0;
+}
+
+.score > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.score > h5 {
+  margin-bottom: 0;
+}
+
+.firstScore {
+  align-self: flex-end;
+}
+
+.secondScore {
+  align-self: flex-start;
+}
+
+.winner {
+  color: rgb(0, 211, 0);
+}
+
+.looser {
+  color: rgb(255, 0, 0);
 }
 
 .see_more {
