@@ -19,9 +19,7 @@
       </div>
 
     </div>
-    <div class="center">
       <RouterLink to="#" class="see_more">See more</RouterLink>
-    </div>
   </div>
 </template>
 
@@ -90,6 +88,7 @@ export default {
   margin: 10px;
   width: 30%;
   height: 75vh;
+  display: grid;
   /* border: 5px aqua solid; */
 }
 
@@ -136,6 +135,7 @@ export default {
 
 .score > h5 {
   margin-bottom: 0;
+  width: 50px;
 }
 
 .firstScore {
@@ -160,6 +160,11 @@ export default {
   padding: 20px 40px;
   background-color: #8d86c9;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  height: 30px;
 }
 
 .see_more:hover {
@@ -171,9 +176,4 @@ export default {
   transition: 0.5s;
 }
 
-.center {
-  margin-top: 60px;
-  display: flex;
-  justify-content: center;
-}
 </style>
