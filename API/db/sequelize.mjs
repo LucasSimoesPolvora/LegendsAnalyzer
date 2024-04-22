@@ -32,7 +32,7 @@ const importUser = () => {
         .hash(process.env.IMPORT_USER_PASS, 10)
         .then((hash) => {
             User.create({
-                username: process.env.IMPORT_USER_USERNAME,
+                username: process.env.IMPORT_USER_NICKNAME,
                 email: process.env.IMPORT_USER_EMAIL,
                 password: hash
             }) 
