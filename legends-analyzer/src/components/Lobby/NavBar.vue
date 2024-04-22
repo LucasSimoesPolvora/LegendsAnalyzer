@@ -10,8 +10,10 @@
         <li><a href="#">Contact</a></li>
         <li>
           <a href="#" class="login">
-            <label>Login</label>
-            <CaUserAvatarFilledAlt class="icon" />
+            <RouterLink to="/login">
+              <label>Login</label>
+              <CaUserAvatarFilledAlt class="icon" />
+            </RouterLink>
           </a>
         </li>
       </ul>
@@ -21,6 +23,7 @@
 
 <script setup>
 import { CaUserAvatarFilledAlt } from '@kalimahapps/vue-icons'
+import { RouterLink } from 'vue-router'
 </script>
 
 <script>
@@ -34,7 +37,7 @@ window.addEventListener('scroll', () => {
     navbar.style.top = `-${navbar.offsetHeight}px`
     navbar.style.transition = '0.3s'
     // console.log('down')
-} else {
+  } else {
     navbar.style.top = '0'
     navbar.style.transition = '0.3s'
 
@@ -85,7 +88,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
- backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .login {
@@ -139,7 +142,7 @@ nav {
   }
 
   #checked:checked + .option,
-  #checked:checked + .option .login label { 
+  #checked:checked + .option .login label {
     /* display: flex; */
     font-size: 20px;
     height: calc(100vh - 100px);
