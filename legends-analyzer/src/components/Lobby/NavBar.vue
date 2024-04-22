@@ -31,7 +31,6 @@ let oldScrollY = window.scrollY
 
 window.addEventListener('scroll', () => {
   let navbar = document.querySelector('nav')
-  let option = document.querySelector('.option')
 
   if (window.scrollY > oldScrollY) {
     navbar.style.top = `-${navbar.offsetHeight}px`
