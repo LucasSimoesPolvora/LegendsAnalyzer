@@ -14,7 +14,7 @@ loginRouter.post("/", (req, res) => {
             // If user doesn't exist, return 404 error
             if (!user) {
                 const message = `Username not found`;
-                return res.status(404).json({ message });
+                return res.status(401).json({ message });
             }
             // Comparing the provided password with the hashed password stored in the database
             bcrypt.compare(req.body.password, user.password)
