@@ -5,8 +5,7 @@ export default {
     data() {
         return {
             isShowed: false,
-            usernameError: '',
-            passwordError: ''
+            errorMessage: ''
         }
     },
     methods: {
@@ -17,9 +16,6 @@ export default {
             this.isShowed = false
         },
         async login() {
-            // Prevent the refresh to debug
-            event.preventDefault()
-
             // Getting the username input value
             let username = document.getElementsByClassName('username')[0].value
 
@@ -34,22 +30,17 @@ export default {
                 username: username,
                 password: password
             }).then((result) => {
-                // Returning the result
-                console.log(result)
-
+                this.usernameError = ''
+                this.passwordError = ''
+                location.href = '/'
+                
             }).catch((error) => {
-                console.log(error)
-                // If it's an error 401 it's a password issue
-                if (error.status == 401) {
-                    this.passwordError = error.data.message
+                if(error.status == 500){
+                    this.errorMessage = error.data.message
+                } else {
+                    this.errorMessage = 'The username or the password is incorrect'
                 }
-                // If it's an error 404 it's a username issue
-                else if (error.status == 404) {
-                    this.usernameError = error.data.message
-                    console.log(this.usernameError)
-                } else if (error.status == 500){
-                    console.log(error.data.message)
-                }
+                
             })
         }
     }
@@ -60,21 +51,20 @@ export default {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <div class="global">
         <div class="wrapper">
-            <form action="">
+            <form  @submit.prevent="login()" action="">
                 <h1>Login</h1>
                 <div class="input-box">
 
                     <input type="text" placeholder="Username" class="username" required>
                     <i class='bx bxs-user'></i>
-                    <p>{{ usernameError }}</p>
-                </div>
+                </div>  
 
                 <div class="input-box">
 
                     <input :type="isShowed ? 'text' : 'password'" placeholder="Password" class="password" required>
                     <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword()"
                         @mouseup="hidePassword()"></i>
-                    <p>{{ passwordError }}</p>
+                    <p>{{ errorMessage }}</p>
                 </div>
 
                 <div class="remember-forgot">
@@ -82,7 +72,7 @@ export default {
                     <RouterLink class="link" to="/forgotPassword" id="forgot">Forgot Password ?</RouterLink>
                 </div>
 
-                <button type="submit" class="btn" @click="login()">Login</button>
+                <button type="submit" class="btn">Login</button>
 
                 <div class="register-link">
                     <p>Don't have an account? <RouterLink class="link" to="/signup">Create One</RouterLink>

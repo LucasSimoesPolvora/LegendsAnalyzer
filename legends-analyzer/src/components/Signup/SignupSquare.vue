@@ -19,9 +19,6 @@ export default {
             this.isShowed[nbr] = false
         },
         async signup(){
-            // Prevent the refresh to debug
-            event.preventDefault()
-
             // Getting the username input value
             let username = document.getElementsByClassName('username')[0].value
 
@@ -40,6 +37,7 @@ export default {
             // If the password and the confiramtion are not matching
             if(password != passwordConfirmation) {
                 this.passwordConfirmationError = `The passwords don't match`
+                this.passwordError = ''
                 return
             }
 
@@ -59,11 +57,9 @@ export default {
                 this.emailError = ''
                 this.passwordError = ''
                 this.passwordConfirmationError = ''
-                // Returning the result
-                console.log(result)
+                location.href = '/'
 
             }).catch((error) => {
-                console.log(error)
                 // If it's an error 401 it's a password issue
                 if (error.status == 401) {
                     this.passwordError = error.data.message
@@ -72,14 +68,19 @@ export default {
                 // If it's an error 400 it's an email issue or a unique username issue
                 else if(error.status == 400) {
                     if(error.data.data.name == 'SequelizeUniqueConstraintError'){
-                        this.usernameError = 'This username is already taken'
+                        if(error.data.data.errors[0].path == 'username'){
+                            this.usernameError = 'This username is already taken'
+                        }
+                        else if(error.data.data.errors[0].path == 'email'){
+                            this.emailError = 'This email is already taken'
+                        }
                         return
                     }
                     this.emailError = `The email isn't valid`
                 }
                 // If it's an error 500 it's a server side problem
                 else if(error.status == 500) {
-                    console.log(error.data.message)
+                    this.passwordConfirmationError = error.data.message
                 }
             })
         }
@@ -91,7 +92,7 @@ export default {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <div class="global">
         <div class="wrapper">
-            <form action="">
+            <form @submit.prevent="signup()" action="">
                 <h1>Sign Up</h1>
                 <div class="input-box">
                     <input type="text" placeholder="Username" class="username" required>
