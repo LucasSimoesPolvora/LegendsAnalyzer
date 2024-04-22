@@ -4,24 +4,21 @@
       <h1>Our social networks</h1>
       <p>Join Us</p>
     </div>
-    <div class="cardDisplay">
-      <a href="">
-        <div class="socialCard" :style="{ backgroundColor: '#7289da' }">
+    <div class="social-links">
+      <a href="#">
+        <i class="fab">
           <AkDiscordFill class="icon" />
-          <h3>Discord</h3>
-        </div>
+        </i>
       </a>
-      <a href="">
-        <div class="socialCard" :style="{ backgroundColor: '#C13584' }">
-          <AkInstagramFill class="icon" />
-          <h3>Instagram</h3>
-        </div>
+      <a href="#">
+        <i class="fab">
+          <AkInstagramFill />
+        </i>
       </a>
-      <a href="">
-        <div class="socialCard" :style="{ backgroundColor: '#1DA1F2' }">
-          <AkTwitterFill class="icon" />
-          <h3>Twitter (X)</h3>
-        </div>
+      <a href="#">
+        <i class="fab">
+          <AkTwitterFill />
+        </i>
       </a>
     </div>
   </div>
@@ -36,12 +33,12 @@ export default {}
 </script>
 <style scoped>
 .socialMediaPart {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   height: 50vh;
   width: 100%;
   color: white;
+  width: 100%;
+  display: grid;
+  justify-items: center;
 }
 
 .socialTitles {
@@ -51,33 +48,62 @@ export default {}
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 2px solid white;
+  border-bottom: 2px solid white;
 }
-
-.socialCard {
-  width: 20vh;
-  height: 100px;
+.social-links {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.cardDisplay {
   width: 50%;
-  display: grid;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 60px;
 }
 
-.cardDisplay a {
+.social-links a {
+  width: 80px;
+  height: 80px;
+  text-align: center;
   text-decoration: none;
-  color: white;
+  color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s;
+  border: 3px grey solid;
 }
 
-.cardDisplay .socialCard {
-  margin: 10px 0;
+.social-links a .fab {
+  font-size: 30px;
+  line-height: 80px;
+  position: relative;
+  z-index: 10;
+  transition: color 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.icon {
-  font-size: 2.3em;
+.social-links a::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: -90px;
+  left: 0;
+  background: #000;
+  background: linear-gradient(-45deg, #9067c6, #242038);
+  position: absolute;
+  transition: 0.5s;
+}
+
+.social-links a:hover::after {
+  top: 0;
+}
+
+.social-links a:hover .fab {
+  color: #000000;
+}
+
+.social-links a:hover {
+  transform: translateY(-10px);
 }
 </style>
