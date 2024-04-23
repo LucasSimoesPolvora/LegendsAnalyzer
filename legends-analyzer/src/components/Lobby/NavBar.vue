@@ -1,7 +1,8 @@
 <template>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo"><img src="/LolPictures/masterLol.webp" /></a>
+      <RouterLink to="/" class="brand-logo"><img src="/LolPictures/masterLol.webp" /></RouterLink>
+      <!-- <a href="#" class="brand-logo"><img src="/LolPictures/masterLol.webp" /></a> -->
       <label class="hamberger-logo" for="checked">≡</label>
       <input type="checkbox" name="checked" id="checked" />
       <ul id="nav-mobile" class="option">

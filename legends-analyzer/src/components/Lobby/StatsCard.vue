@@ -90,8 +90,9 @@ export default {
   margin: 10px;
   width: 30%;
   height: 75vh;
-  display: grid;
-  /* border: 5px aqua solid; */
+  display: flex;
+  flex-direction: column;
+  border: 3px rgb(185, 81, 255) solid;
 }
 
 .champion {
@@ -139,6 +140,7 @@ export default {
   align-items: center;
   font-size: 1.3rem;
   height: 30px;
+  margin-top: 40px;
 }
 
 .see_more:hover {

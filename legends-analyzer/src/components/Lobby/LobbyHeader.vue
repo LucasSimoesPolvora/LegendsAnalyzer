@@ -1,7 +1,6 @@
 <template>
   <vue-particles id="tsparticles" url="/particlesjs-config.json" />
   <header>
-    <NavBar />
     <div class="text">
       <h1>Hello summoner ! Welcome to</h1>
       <a href="#">Get Started</a>
@@ -18,7 +17,6 @@ window.addEventListener('scroll', () => {
 </script>
 
 <script setup>
-import NavBar from './NavBar.vue';
 </script>
 
 <style scoped>
