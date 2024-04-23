@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken"
 import { User } from "../../db/sequelize.mjs"
 import { privateKey } from "../../auth/private_key.mjs"
 import { ValidationError } from "sequelize";
+import nodemailer from 'nodemailer';
 
 // Creating the router
 const signUpRouter = express();
