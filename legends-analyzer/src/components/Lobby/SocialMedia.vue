@@ -39,6 +39,12 @@ export default {}
   width: 100%;
   display: grid;
   justify-items: center;
+  background-image: url('/LolPictures/map.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-position: center; */
+  margin-top: 70px;
 }
 
 .socialTitles {
@@ -90,7 +96,7 @@ export default {}
   top: -90px;
   left: 0;
   background: #000;
-  background: linear-gradient(-45deg, #9067c6, #242038);
+  background: linear-gradient(-45deg, #8d86c9, #d5b5ff);
   position: absolute;
   transition: 0.5s;
 }

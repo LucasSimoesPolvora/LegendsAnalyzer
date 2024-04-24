@@ -87,9 +87,8 @@ export default {
   padding: 20px;
   margin: 10px;
   width: 30%;
-  height: 75vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  align-content: space-around;
   border: 3px rgb(185, 81, 255) solid;
 }
 
@@ -158,7 +157,7 @@ export default {
 .see_more {
   color: white;
   text-decoration: none;
-  padding: 20px 40px;
+  padding: 20px 0px;
   background-color: #8d86c9;
   border-radius: 5px;
   display: flex;

@@ -12,8 +12,4 @@ import MainComponent from '@/components/Lobby/Main.vue'
 main {
   background-color: black;
 }
-
-#main {
-  box-shadow: 0px 0px 30px 60px #000000;
-}
 </style>
