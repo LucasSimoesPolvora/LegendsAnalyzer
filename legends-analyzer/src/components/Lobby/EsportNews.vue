@@ -177,10 +177,11 @@ export default {
   transition: 0.5s;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .esportNews {
     width: 100%;
-    margin: 0;
+    margin:60px 0 0 0;
+
   }
 }
 

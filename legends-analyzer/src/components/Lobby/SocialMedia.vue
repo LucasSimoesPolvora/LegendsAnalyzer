@@ -43,7 +43,7 @@ export default {}
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* background-position: center; */
+  background-position: center;
   margin-top: 70px;
 }
 
