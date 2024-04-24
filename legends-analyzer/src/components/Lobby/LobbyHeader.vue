@@ -52,18 +52,17 @@ header {
 }
 
 .text a {
-  padding: 30px 40px;
+  padding: 20px 30px;
   background-color: #8d86c9;
   text-decoration: none;
   border: 1px solid white;
-  border-radius: 30px 0 30px 0;
+  border-radius: 15px;
   color: white;
 }
 
 .text a:hover {
   background-color: #6c63a4;
   clip-path: none;
-  border-radius: 0 30px 0 30px;
   transition: 0.5s;
 }
 
@@ -86,9 +85,18 @@ header {
   background-color: chartreuse;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .logo {
     display: none;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .text h1 {
+    font-size: 50px;
   }
 }
 </style>

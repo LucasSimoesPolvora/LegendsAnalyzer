@@ -91,7 +91,7 @@ export default {
   width: 30%;
   display: grid;
   align-content: space-around;
-  border: 3px rgb(185, 81, 255) solid;
+  /* border: 3px rgb(185, 81, 255) solid; */
 }
 
 .champion {
@@ -149,5 +149,25 @@ export default {
 
 .see_more:not(:hover) {
   transition: 0.5s;
+}
+
+@media (max-width: 1024px) {
+  .statsCard {
+    width: 100%;
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .statsCard {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .statsCard {
+    font-size: 0.5rem;
+  }
 }
 </style>

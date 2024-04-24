@@ -89,7 +89,7 @@ export default {
   width: 30%;
   display: grid;
   align-content: space-around;
-  border: 3px rgb(185, 81, 255) solid;
+  /* border: 3px rgb(185, 81, 255) solid; */
 }
 
 .esportNews > h2 {
@@ -175,6 +175,13 @@ export default {
 
 .see_more:not(:hover) {
   transition: 0.5s;
+}
+
+@media (max-width: 1000px) {
+  .esportNews {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 </style>

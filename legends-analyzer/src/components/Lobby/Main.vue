@@ -26,8 +26,4 @@ export default {}
     padding-top: 50px;
     box-shadow: 0px 0px 30px 60px #000000;
 }
-
-.card {
-  min-width: 600px;
-}
 </style>
