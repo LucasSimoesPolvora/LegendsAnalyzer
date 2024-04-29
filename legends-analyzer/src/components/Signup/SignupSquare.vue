@@ -12,12 +12,6 @@ export default {
         }
     },
     methods: {
-        showPassword(nbr) {
-            this.isShowed[nbr] = true
-        },
-        hidePassword(nbr) {
-            this.isShowed[nbr] = false
-        },
         async signup(){
             // Getting the username input value
             let username = document.getElementsByClassName('username')[0].value
@@ -81,6 +75,9 @@ export default {
                 // If it's an error 500 it's a server side problem
                 else if(error.status == 500) {
                     this.passwordConfirmationError = error.data.message
+                    console.log(error.data)
+                } else {
+                    this.passwordConfirmationError = "A problem occured"
                 }
             })
         }
@@ -108,15 +105,16 @@ export default {
 
                 <div class="input-box">
                     <input :type="isShowed[0] ? 'text' : 'password'" placeholder="Password" class="password" required>
-                    <i :class="isShowed[0] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(0)"
-                        @mouseup="hidePassword(0)"></i>
+                    <i :class="isShowed[0] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="isShowed[0] = !isShowed[0]"
+                        @mouseup="isShowed[0] = !isShowed[0]"></i>
                         <p>{{ passwordError }}</p>
                 </div>
 
                 <div class="input-box">
                     <input :type="isShowed[1] ? 'text' : 'password'" placeholder="Confirm password" class="password"
                         required>
-                    <i :class="isShowed[1] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword(1)" @mouseup="hidePassword(1)"></i>
+                    <i :class="isShowed[1] ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="isShowed[1] = !isShowed[1]" 
+                    @mouseup="isShowed[1] = !isShowed[1]"></i>
                     <p>{{ passwordConfirmationError }}</p>
                 </div>
 

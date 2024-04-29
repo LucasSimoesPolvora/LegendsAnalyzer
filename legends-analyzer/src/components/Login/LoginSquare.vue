@@ -9,12 +9,6 @@ export default {
         }
     },
     methods: {
-        showPassword() {
-            this.isShowed = true
-        },
-        hidePassword() {
-            this.isShowed = false
-        },
         async login() {
             // Getting the username input value
             let username = document.getElementsByClassName('username')[0].value
@@ -54,17 +48,15 @@ export default {
             <form  @submit.prevent="login()" action="">
                 <h1>Login</h1>
                 <div class="input-box">
-
                     <input type="text" placeholder="Username" class="username" required>
                     <i class='bx bxs-user'></i>
                 </div>  
 
                 <div class="input-box">
-
                     <input :type="isShowed ? 'text' : 'password'" placeholder="Password" class="password" required>
-                    <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="showPassword()"
-                        @mouseup="hidePassword()"></i>
-                    <p>{{ errorMessage }}</p>
+                    <i :class="isShowed ? 'bx bx-show' : 'bx bxs-hide'" @mousedown="isShowed = !isShowed"
+                        @mouseup="isShowed = !isShowed"></i>
+                    <p class="error">{{ errorMessage }}</p>
                 </div>
 
                 <div class="remember-forgot">
@@ -115,13 +107,13 @@ export default {
 .wrapper .input-box {
     position: relative;
     width: 100%;
-    height: 50px;
+    height: auto;
     margin: 30px 0
 }
 
 .input-box input {
     width: 100%;
-    height: 100%;
+    height: 50px;
     background: transparent;
     border: none;
     outline: none;
@@ -140,8 +132,14 @@ export default {
     position: absolute;
     right: 20px;
     top: 50%;
-    transform: translateY(-35%);
+    transform: translateY(-50%);
     font-size: 20px;
+}
+
+.error {
+    padding-left: 20px;
+    color: red;
+    font-size: 14px;
 }
 
 .wrapper .remember-forgot {

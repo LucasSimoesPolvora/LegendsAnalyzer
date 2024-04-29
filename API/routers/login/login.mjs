@@ -30,7 +30,13 @@ loginRouter.post("/", (req, res) => {
                         });
                         const message = `The user was successfully connected`;
                         // Return success message along with user data and token
-                        return res.status(201).json({ message, data: user, token});
+                        return res.cookie('Token', token, {
+                            path: '/',
+                            httpOnly: true,
+                            secure: true,
+                            maxAge: 3600000,
+
+                        }).status(201).json({ message, data: user, token});
                     }
                 });
         })
