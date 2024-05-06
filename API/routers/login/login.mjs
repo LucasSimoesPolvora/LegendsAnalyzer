@@ -33,18 +33,13 @@ loginRouter.post("/", (req, res) => {
             });
             const message = `The user was successfully connected`;
             // Return success message along with user data and token
-            res.cookie("jwt", token, {
+            res.cookie("token", token, {
               httpOnly: true,
               secure: false,
               sameSite: "strict",
               path: "/",
             });
             res.setHeader("Access-Control-Allow-Credentials", "true"); 
-            res.setHeader("Access-Control-Expose-Headers", "Cache-Control");
-
-            let cookieValues = cookie.parse(req.headers.cookie)
-
-            console.log(cookieValues)
 
             res.status(201).json({ message, data: user });
           }

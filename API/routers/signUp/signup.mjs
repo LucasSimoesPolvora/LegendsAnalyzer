@@ -21,6 +21,14 @@ signUpRouter.post("/", (req, res) => {
         .then((createdUser) => {
           // Return success message upon successful creation
           const message = `Your account has been successfully created !`;
+          // Return success message along with user data and token
+          res.cookie("jwt", token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: "strict",
+            path: "/",
+          });
+          res.setHeader("Access-Control-Allow-Credentials", "true"); 
           res.status(200).json({ message });
         })
         .catch((error) => {
