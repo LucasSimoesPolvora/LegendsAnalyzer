@@ -44,9 +44,6 @@ export default {
 
       await axios.get(APICall).then((response) => {
         let limit = 4;
-
-        console.log(response)
-
         for (let i = 0; i < limit; i++) {
           if (response.data.puuid[i].end_at === null) {
             limit++
@@ -54,7 +51,6 @@ export default {
             this.esportResult.push(response.data.puuid[i])
           }
         }
-        console.log(this.esportResult)
       }).catch((error) => {
           console.error(error)
       })
