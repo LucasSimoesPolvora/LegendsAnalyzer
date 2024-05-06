@@ -7,6 +7,7 @@ import { testRouter } from './routers/test/test.mjs';
 import { getPlayerPuuidRouter } from './routers/lolAPI/getPlayerPuuid.mjs';
 import { getChampionsMasteryPuuid } from './routers/lolAPI/getChampionsMastery.mjs';
 import { getMatchesInfoPuuid } from './routers/lolAPI/getMatchesInfoPlayerPuuid.mjs';
+import { getLastLolMatches } from './routers/esportAPI/getLastLolMatches.mjs';
 import 'dotenv/config'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -40,11 +41,13 @@ app.use('/changepassword', changePasswordRouter)
 
 app.use('/test16042024', testRouter)
 
-app.use('/getPlayer', getPlayerPuuidRouter)
+app.use('/lol/getPlayer', getPlayerPuuidRouter)
 
-app.use('/getChampionsMastery', getChampionsMasteryPuuid)
+app.use('/lol/getChampionsMastery', getChampionsMasteryPuuid)
 
-app.use('/getMatches', getMatchesInfoPuuid)
+app.use('/lol/getMatches', getMatchesInfoPuuid)
+
+app.use('/esport/lol/lastMatches', getLastLolMatches)
 
 app.use(({ res }) => {
     const message = "No ressource found. Try another URL"

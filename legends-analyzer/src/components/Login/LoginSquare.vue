@@ -35,7 +35,6 @@ export default {
                 } else {
                     this.errorMessage = 'The username or the password is incorrect'
                 }
-                
             })
         }
     }

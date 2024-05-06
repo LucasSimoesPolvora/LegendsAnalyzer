@@ -40,31 +40,24 @@ export default {
   },
   methods: {
     async getEsportNews() {
-      const options = {
-        method: 'GET',
-        url: 'https://api.pandascore.co/lol/matches?filter[status]=finished&sort=-end_at',
-        headers: {
-          Authorization: 'Bearer ovxjJiSJUd0WNzEGwhkCqLmcqaJSvJXkDlMKea4Gc6CsFoYOphY'
-        }
-      }
+      const APICall = 'http://localhost:3000/esport/lol/lastMatches'
 
-      try {
-        const response = await axios.request(options)
-
+      await axios.get(APICall).then((response) => {
         let limit = 4;
 
+        console.log(response)
+
         for (let i = 0; i < limit; i++) {
-          if (response.data[i].end_at === null) {
+          if (response.data.puuid[i].end_at === null) {
             limit++
           } else {
-            this.esportResult.push(response.data[i])
+            this.esportResult.push(response.data.puuid[i])
           }
         }
-
         console.log(this.esportResult)
-      } catch (error) {
-        console.error(error)
-      }
+      }).catch((error) => {
+          console.error(error)
+      })
     },
     sortByDate() {
       this.esportResult = this.esportResult.sort(
