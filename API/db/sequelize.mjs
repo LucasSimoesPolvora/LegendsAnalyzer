@@ -18,12 +18,11 @@ const sequelize = new Sequelize(
 
 const User = userModel(sequelize, DataTypes)
 
-let initDb = () => {
+let initDb = async () => {
     return sequelize
             .sync({force: true})
             .then((_) => {
                 importUser();
-                console.log("The database was synced")
             })
 }
 
@@ -34,7 +33,8 @@ const importUser = () => {
             User.create({
                 username: process.env.IMPORT_USER_NICKNAME,
                 email: process.env.IMPORT_USER_EMAIL,
-                password: hash
+                password: hash,
+                premium: false
             }) 
         })
 }

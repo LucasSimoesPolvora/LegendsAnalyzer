@@ -47,6 +47,10 @@ const userModel = (sequelize, DataTypes) => {
                         msg:"The password is required"
                     },
                 }
+            },
+            premium: {
+                type: DataTypes.BOOLEAN,
+                allowNull: false
             }
         },
         {

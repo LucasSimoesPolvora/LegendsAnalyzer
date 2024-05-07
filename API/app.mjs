@@ -26,7 +26,7 @@ const port = 3000
 initDb()
 
 app.listen(port, () => {
-    console.log(`http://localhost:${port}/`)
+    
 })
 
 app.get('/', (req,res) =>{

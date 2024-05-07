@@ -3,6 +3,15 @@ import { privateKey } from "./private_key.mjs";
 
 const auth = (req, res, next) => {
   const authorizationHeader = String(req.headers["cookie"]);
+  let tokenCookie = ''
+
+  const allCookies = authorizationHeader.split(';')
+
+  allCookies.forEach((cookie) => {
+    if(cookie.startsWith(' token')){
+      tokenCookie = cookie
+    }
+  })
 
   // Checking if the header exists
   if (!authorizationHeader) {
@@ -10,7 +19,7 @@ const auth = (req, res, next) => {
     res.status(401).json({ message });
   } else {
     //Extracting the token
-    const token = authorizationHeader.split("=")[1];
+    const token = tokenCookie.split("=")[1];
 
     // Verifying the token
     jwt.verify(token, privateKey, (error, decodedToken) => {
