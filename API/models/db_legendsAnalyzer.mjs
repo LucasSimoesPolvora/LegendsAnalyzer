@@ -50,7 +50,13 @@ const userModel = (sequelize, DataTypes) => {
             },
             premium: {
                 type: DataTypes.BOOLEAN,
+                defaultValue: false,
                 allowNull: false
+            },
+            isAdmin: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
+                allowNull: true
             }
         },
         {
