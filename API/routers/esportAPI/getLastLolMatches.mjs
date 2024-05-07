@@ -8,14 +8,6 @@ const getLastLolMatches = express();
 getLastLolMatches.get("/", async (req, res) => {    
 
     const APICall = 'https://api.pandascore.co/lol/matches?filter[status]=finished&sort=-end_at'
-
-    // const options = {
-    //     method: 'GET',
-    //     url: APICall,
-    //     headers: {
-    //       Authorization: 'Bearer ' + process.env.ESPORT_TOKEN
-    //     }
-    //   }
   
     //const response = await axios.request(options)
     await axios.get(APICall, {

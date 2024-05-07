@@ -42,7 +42,9 @@ export default {
     async getEsportNews() {
       const APICall = 'http://localhost:3000/esport/lol/lastMatches'
 
-      await axios.get(APICall).then((response) => {
+      await axios.get(APICall, {
+        withCredentials: true
+      }).then((response) => {
         let limit = 4;
         for (let i = 0; i < limit; i++) {
           if (response.data.puuid[i].end_at === null) {

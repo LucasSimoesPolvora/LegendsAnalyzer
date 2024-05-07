@@ -29,7 +29,7 @@ loginRouter.post("/", (req, res) => {
           } else {
             // If password is valid, generate JWT token
             const token = jwt.sign({ userId: user.id_user }, privateKey, {
-              expiresIn: "1y", // Token expires in 1 year
+              expiresIn: "1h", // Token expires in 1 hour
             });
             const message = `The user was successfully connected`;
             // Return success message along with user data and token
