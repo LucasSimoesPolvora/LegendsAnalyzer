@@ -46,6 +46,8 @@ export default {
                 username: username,
                 email: email,
                 password: password
+            }, {
+                withCredentials: true
             }).then((result) => {
                 this.usernameError = ''
                 this.emailError = ''
@@ -54,6 +56,10 @@ export default {
                 location.href = '/'
 
             }).catch((error) => {
+                this.usernameError= ''
+                this.emailError= ''
+                this.passwordConfirmationError = ''
+                this.passwordError= ''
                 // If it's an error 401 it's a password issue
                 if (error.status == 401) {
                     this.passwordError = error.data.message

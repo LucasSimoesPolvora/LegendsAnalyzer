@@ -16,11 +16,16 @@ signUpRouter.post("/", (req, res) => {
       User.create({
         username: req.body.username,
         email: req.body.email,
-        password: hash
+        password: hash,
+        premium: false
       })
         .then((createdUser) => {
           // Return success message upon successful creation
           const message = `Your account has been successfully created !`;
+
+          const token = jwt.sign({ userId: createdUser.id_user }, privateKey, {
+            expiresIn: "1h", // Token expires in 1 hour
+          });
           // Return success message along with user data and token
           res.cookie("jwt", token, {
             httpOnly: true,
