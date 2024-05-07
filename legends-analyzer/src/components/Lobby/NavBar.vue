@@ -6,9 +6,13 @@
       <label class="hamberger-logo" for="checked">≡</label>
       <input type="checkbox" name="checked" id="checked" />
       <ul id="nav-mobile" class="option">
-        <li><a href="#">Home</a></li>
         <li>
-          <RouterLink>
+          <RouterLink to="/">
+            Home 
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/matches">
             Matches
           </RouterLink>
         </li>
