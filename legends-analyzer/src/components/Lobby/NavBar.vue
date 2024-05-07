@@ -7,6 +7,11 @@
       <input type="checkbox" name="checked" id="checked" />
       <ul id="nav-mobile" class="option">
         <li><a href="#">Home</a></li>
+        <li>
+          <RouterLink>
+            Matches
+          </RouterLink>
+        </li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
         <li>
@@ -141,15 +146,15 @@ nav {
     margin: 10px 0;
   }
 
-  #checked:checked + .option,
-  #checked:checked + .option .login label {
+  #checked:checked+.option,
+  #checked:checked+.option .login label {
     /* display: flex; */
     font-size: 20px;
     height: calc(100vh - 100px);
     transition: 0.25s;
   }
 
-  #checked:not(:checked) + .option {
+  #checked:not(:checked)+.option {
     height: 0;
     font-size: 0;
     transition: 0.25s;
