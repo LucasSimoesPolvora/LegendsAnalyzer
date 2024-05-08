@@ -3,11 +3,11 @@ import { initDb } from './db/sequelize.mjs';
 import { loginRouter } from './routers/login/login.mjs';
 import { signUpRouter } from './routers/signUp/signup.mjs';
 import { changePasswordRouter } from './routers/changePassword/changePassword.mjs';
-import { testRouter } from './routers/test/test.mjs';
 import { getPlayerPuuidRouter } from './routers/lolAPI/getPlayerPuuid.mjs';
 import { getChampionsMasteryPuuid } from './routers/lolAPI/getChampionsMastery.mjs';
 import { getMatchesInfoPuuid } from './routers/lolAPI/getMatchesInfoPlayerPuuid.mjs';
 import { getLastLolMatches } from './routers/esportAPI/getLastLolMatches.mjs';
+import { forgotPasswordRouter } from './routers/changePassword/forgotPassword.mjs';
 import 'dotenv/config'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -26,7 +26,7 @@ const port = 3000
 initDb()
 
 app.listen(port, () => {
-    
+    console.log(`http://localhost:${port}/`)
 })
 
 app.get('/', (req,res) =>{
@@ -39,7 +39,7 @@ app.use('/signup', signUpRouter)
 
 app.use('/changepassword', changePasswordRouter)
 
-app.use('/test16042024', testRouter)
+app.use('/forgotpassword', forgotPasswordRouter)
 
 app.use('/lol/getPlayer', getPlayerPuuidRouter)
 
