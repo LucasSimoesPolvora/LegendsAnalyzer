@@ -4,11 +4,16 @@
       <div class="title">
         <h1>Search player's matches :</h1>
         <div class="inputs">
-          <div class="custom-select">
-            <div class="value">
-              <h4 @click="toggleSelect()">
+          <div
+            class="custom-select"
+            :style="{ borderRadius: !isClicked ? '5px 0 0 5px' : '5px 0 0 0' }"
+          >
+            <div class="value" @click="toggleSelect()">
+              <h4>
                 {{ regionChosen.name }}
               </h4>
+              <AkChevronDown v-if="!isClicked" />
+              <AkChevronUp v-else />
             </div>
             <div :class="[isClicked ? 'clicked-selected' : 'select-options']">
               <p
@@ -21,11 +26,6 @@
             </div>
           </div>
 
-          <!-- <select name="" id="">
-            <option value="" disabled selected>Choose a region</option>
-            <option v-for="option in options" :key="option" :value="option" :style="{width: '200000px'}">{{ option }}</option>
-          </select> -->
-
           <input type="text" placeholder="Enter a player's name + #" />
         </div>
       </div>
@@ -37,7 +37,9 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { AkChevronDown, AkChevronUp } from '@kalimahapps/vue-icons'
+</script>
 
 <script>
 export default {
@@ -97,50 +99,67 @@ header {
   height: 100px;
 }
 
-/* select {
-  width: 200px;
-  height: 50px;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  padding: 0 10px;
-  font-size: 1rem;
-  outline: none;
-  background-color: #242038;
-  color: white;
-}
-
-select option {
-  color: white;
-}
-
-select option:hover {
-  background-color: #514c6b;
-} */
-
 .custom-select {
   background-color: #242038;
   border-radius: 5px 0 0 0;
+  font-family: Arial, Helvetica, sans-serif;
   /* height: 50px; */
 }
 
 .value {
   height: 50px;
   width: 200px;
-  /* border: red 5px solid; */
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-radius: 50px 0 0 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.value h4 {
+  user-select: none;
+}
+
+.icon {
+  font-weight: bolder;
 }
 
 .select-options p,
 .clicked-selected p {
-  margin: 0 0 10px 0;
+  padding: 4px 0;
+  margin: 0;
+  user-select: none;
+}
+
+.select-options p:hover,
+.clicked-selected p:hover {
+  background-color: #514c6b;
+  cursor: pointer;
 }
 
 .select-options,
 .clicked-selected {
   width: 200px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.select-options::-webkit-scrollbar-track,
+.clicked-selected::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+.select-options::-webkit-scrollbar,
+.clicked-selected::-webkit-scrollbar {
+  width: 12px;
+}
+
+.select-options::-webkit-scrollbar-thumb,
+.clicked-selected::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #514c6b;
 }
 
 .select-options {
