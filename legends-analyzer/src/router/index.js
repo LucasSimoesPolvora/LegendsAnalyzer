@@ -3,6 +3,7 @@ import LobbyView from "@/Views/LobbyView.vue";
 import LoginView from "@/Views/LoginView.vue";
 import SignupView from "@/Views/SignupView.vue";
 import UserMatches from "@/Views/UserMatches.vue";
+import ForgotPasswordView from "@/Views/ForgotPasswordView.vue";
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/matches',
         name: 'Matches',
         component: UserMatches
+    },
+    {
+        path: '/forgotpassword',
+        name: 'ForgotPassword',
+        component: ForgotPasswordView
     }
 ]
 
