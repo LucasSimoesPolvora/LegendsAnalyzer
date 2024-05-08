@@ -19,7 +19,7 @@
               <p
                 v-for="option in options"
                 :key="option"
-                @click="[(regionChosen.name = option), (isClicked = false)]"
+                @click="[(regionChosen.name = option), (isClicked = false), regionChosen.active = true, console.log(regionChosen)]"
               >
                 {{ option }}
               </p>
@@ -69,8 +69,7 @@ export default {
   },
   methods: {
     toggleSelect() {
-      this.isClicked = !this.isClicked
-      console.log(this.isClicked)
+      this.isClicked = !this.isClicked;
     }
   }
 }
@@ -97,6 +96,7 @@ header {
   display: flex;
   align-items: end;
   height: 100px;
+  border-top: 1px solid white;
 }
 
 .custom-select {
@@ -127,7 +127,7 @@ header {
 
 .select-options p,
 .clicked-selected p {
-  padding: 4px 0;
+  padding: 15px 0;
   margin: 0;
   user-select: none;
 }
@@ -191,6 +191,7 @@ header {
   background-color: #514c6b;
   color: white;
 }
+
 
 .title input::placeholder {
   color: rgb(202, 202, 202);
