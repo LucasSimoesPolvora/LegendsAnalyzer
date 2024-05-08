@@ -9,7 +9,15 @@ export default {
     },
     methods: {
         async sendMail() {
-            
+            let emailValue = document.getElementsByClassName('email')[0].value
+
+            axios.post('http://localhost:3000/forgotpassword', {
+                email: emailValue
+            }, {
+                withCredentials: true
+            }).then((result) => {
+                console.log(result);
+            })
         }
     }
 }
