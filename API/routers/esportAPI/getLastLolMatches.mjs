@@ -9,7 +9,6 @@ getLastLolMatches.get("/", async (req, res) => {
 
     const APICall = 'https://api.pandascore.co/lol/matches?filter[status]=finished&sort=-end_at'
   
-    //const response = await axios.request(options)
     await axios.get(APICall, {
         headers : {
             Authorization: 'Bearer ' + process.env.ESPORT_TOKEN
