@@ -22,7 +22,8 @@ export default {
             // POST with axios with the username and the password
             await axios.post(APICall, {
                 username: username,
-                password: password}, {
+                password: password
+            }, {
                 withCredentials: true
             }).then((result) => {
                 this.usernameError = ''
