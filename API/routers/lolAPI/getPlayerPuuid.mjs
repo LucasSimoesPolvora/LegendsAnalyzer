@@ -22,7 +22,7 @@ getPlayerPuuidRouter.get("/", async (req, res) => {
     }).catch((err) => {
         res.status(500).json({
             msg: 'A problem occured while we treated your request ! Try again later', 
-            data: err + ' '
+            data: err
         })
     })
 });
