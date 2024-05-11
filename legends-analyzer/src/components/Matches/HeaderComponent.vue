@@ -19,15 +19,23 @@
               <p
                 v-for="option in options"
                 :key="option"
-                @click="[(regionChosen.name = option), (isClicked = false), regionChosen.active = true, console.log(regionChosen)]"
+                @click="
+                  [(regionChosen.name = option), (isClicked = false), (regionChosen.active = true)]
+                "
               >
                 {{ option }}
               </p>
             </div>
           </div>
 
-          <input type="text" placeholder="Enter a player's name + #" v-model="playerName" @keypress.enter="onSubmit()"/>
+          <input
+            type="text"
+            placeholder="Enter a player's name + #"
+            v-model="playerName"
+            @keypress.enter="onSubmit()"
+          />
         </div>
+        <p class="error">{{ errorMessage }}</p>
       </div>
       <div class="img">
         <!-- <img src="/LolPictures/1332615.jpeg" alt="League of Legends" /> -->
@@ -39,12 +47,14 @@
 
 <script setup>
 import { AkChevronDown, AkChevronUp } from '@kalimahapps/vue-icons'
+import axios from 'redaxios'
 </script>
 
 <script>
 export default {
   data() {
     return {
+      errorMessage: '',
       playerName: '',
       seperatedPlayName: [],
       isClicked: false,
@@ -71,11 +81,27 @@ export default {
   },
   methods: {
     toggleSelect() {
-      this.isClicked = !this.isClicked;
+      this.isClicked = !this.isClicked
     },
     onSubmit() {
-      this.seperatedPlayName = this.playerName.split('#');
-      console.log(this.seperatedPlayName);
+      if (this.playerName === '') {
+        this.errorMessage = 'Please enter a valid player name'
+        this.isClicked = false
+      } else {
+        this.errorMessage = ''
+        // this.getPlayerPuiid()
+      }
+    },
+    getPlayerPuiid() {
+      axios
+        .get('http://localhost:3000/lol/getPlayer', {
+          data: {
+            accountName: this.playerName
+          }
+        })
+        .then((res) => {
+          console.log(res)
+        })
     }
   }
 }
@@ -153,7 +179,7 @@ header {
 
 .select-options::-webkit-scrollbar-track,
 .clicked-selected::-webkit-scrollbar-track {
-	border-radius: 10px;
+  border-radius: 10px;
 }
 
 .select-options::-webkit-scrollbar,
@@ -164,7 +190,7 @@ header {
 .select-options::-webkit-scrollbar-thumb,
 .clicked-selected::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #514c6b;
 }
 
@@ -197,7 +223,6 @@ header {
   background-color: #514c6b;
   color: white;
 }
-
 
 .title input::placeholder {
   color: rgb(202, 202, 202);
