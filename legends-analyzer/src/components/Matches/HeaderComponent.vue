@@ -26,7 +26,7 @@
             </div>
           </div>
 
-          <input type="text" placeholder="Enter a player's name + #" />
+          <input type="text" placeholder="Enter a player's name + #" v-model="playerName" @keypress.enter="onSubmit()"/>
         </div>
       </div>
       <div class="img">
@@ -45,6 +45,8 @@ import { AkChevronDown, AkChevronUp } from '@kalimahapps/vue-icons'
 export default {
   data() {
     return {
+      playerName: '',
+      seperatedPlayName: [],
       isClicked: false,
       regionChosen: { name: 'Choose a region', active: false },
       options: [
@@ -70,6 +72,10 @@ export default {
   methods: {
     toggleSelect() {
       this.isClicked = !this.isClicked;
+    },
+    onSubmit() {
+      this.seperatedPlayName = this.playerName.split('#');
+      console.log(this.seperatedPlayName);
     }
   }
 }
