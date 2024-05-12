@@ -5,10 +5,10 @@ import express from "express"
 const getPlayerPuuidRouter = express();
 
 // endpoint for handling the router
-getPlayerPuuidRouter.get("/", async (req, res) => {
+getPlayerPuuidRouter.get("/:accountName", async (req, res) => {
     const API_KEY = process.env.API_KEY
 
-    let split = req.body.accountName
+    let split = req.params.accountName
 
     let accountName = split.split('#')
     

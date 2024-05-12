@@ -89,16 +89,13 @@ export default {
         this.isClicked = false
       } else {
         this.errorMessage = ''
-        // this.getPlayerPuiid()
+        this.getPlayerPuiid()
       }
     },
     getPlayerPuiid() {
+      console.log(this.playerName)
       axios
-        .get('http://localhost:3000/lol/getPlayer', {
-          data: {
-            accountName: this.playerName
-          }
-        })
+        .get(`http://localhost:3000/lol/getPlayer/MySonIsSpecial#6959`)
         .then((res) => {
           console.log(res)
         })
