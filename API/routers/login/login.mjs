@@ -38,10 +38,9 @@ loginRouter.post("/", (req, res) => {
               secure: false,
               sameSite: "strict",
               path: "/",
-            });
-            res.setHeader("Access-Control-Allow-Credentials", "true"); 
-
-            res.status(201).json({ message, data: user });
+            }).setHeader("Access-Control-Allow-Credentials", "true")
+              .status(201)
+              .json({ message, data: user });
           }
         });
     })
